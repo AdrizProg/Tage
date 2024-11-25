@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('despues', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('nivelLLenado')->nullable();
+            $table->string('fotoFinal')->nullable();
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }
