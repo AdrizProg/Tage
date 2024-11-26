@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('centros', function (Blueprint $table) {
+        Schema::create('despues', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('codigo');
-            $table->string('nombre');
-            $table->string('direccion');
-            $table->string('logotipo')->nullable();
-            $table->string('responsable');
+            $table->tinyInteger('nivelLLenado')->nullable();
+            $table->string('fotoFinal')->nullable();
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('centros');
+        Schema::dropIfExists('despues');
     }
 };

@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('centros', function (Blueprint $table) {
+        Schema::create('composteras', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('codigo');
-            $table->string('nombre');
-            $table->string('direccion');
-            $table->string('logotipo')->nullable();
-            $table->string('responsable');
+            $table->enum('tipo', ['aporte','degradacion','maduracion']);
+            $table->unsignedBigInteger('centro');
+            $table->foreign('centro')->references('id')->on('centros')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('centros');
+        Schema::dropIfExists('composteras');
     }
 };
