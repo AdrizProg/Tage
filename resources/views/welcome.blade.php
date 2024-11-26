@@ -77,7 +77,7 @@
                 </div>
                 <div class="flex justify-between mb-4">
                     <button class="bg-green-700 text-white rounded-full px-4 py-2">Add</button>
-                    <button class="bg-green-700 text-white rounded-full px-4 py-2">Home</button>
+                    <button class="bg-green-700 text-white rounded-full px-4 py-2">Dashboard</button>
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
@@ -85,7 +85,7 @@
                     <div class="bg-gray-200 rounded-full p-4 mb-2">
                         <i class="fas fa-home text-green-700 text-2xl"></i>
                     </div>
-                    <span class="text-sm text-gray-600">Home</span>
+                    <span class="text-sm text-gray-600">Dashboard</span>
                 </div>
                 <div class="flex flex-col items-center">
                     <div class="bg-gray-200 rounded-full p-4 mb-2">
