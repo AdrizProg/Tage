@@ -20,7 +20,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <style>
         body {
-            background-color: #f3f4f6;
+            background-color: #b3edf7;
+        }
+
+        .scalaInicial {
+            transition: transform 0.3s ease;
+        }
+
+        .scalaInicial:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -29,8 +37,10 @@
     <div class="text-center">
         <img alt="Logo" class="mx-auto mb-8" height="100" src="favicon.ico" width="100" />
 
-        {{ $slot }}
-    </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg w-96" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
+            {{ $slot }}
+        </div>
 </body>
 
 </html>
