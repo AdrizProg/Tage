@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <h2 class="text-2xl font-bold mb-6 text-center text-green-700">Login to Compostage App</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center text-green-700">Bienvenido</h2>
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
