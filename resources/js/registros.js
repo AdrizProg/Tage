@@ -1,9 +1,9 @@
 const app = document.getElementById('app');
 
-export default function dashboard() {
-  app.innerHTML = `
-    <div class="bg-white shadow-md rounded-lg p-6 max-w-sm">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Hola, Dashboard!</h2>
+export default function registros() {
+    app.innerHTML = `
+      <div class="bg-white shadow-md rounded-lg p-6 max-w-sm">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Hola, Registros!</h2>
         <p class="text-gray-600 mb-4">
           Este elemento fue generado dinámicamente con JavaScript y estilizado con Tailwind CSS.
         </p>

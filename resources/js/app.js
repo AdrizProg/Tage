@@ -2,10 +2,15 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 
-import nuevo from './dashboard';
+import pintar from './ruta';
 
 window.Alpine = Alpine;
 
 Alpine.start();
 
-nuevo();
+window.addEventListener('popstate', pintar);
+
+window.addEventListener('load', async () => {
+    // await consulta();
+    pintar();
+});
