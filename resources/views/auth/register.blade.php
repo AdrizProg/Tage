@@ -16,25 +16,14 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Centros -->
-        <div class="mt-4">
-            <x-input-label for="centro" :value="__('Centro')" />
-            <select id="centro" name="centro" class="block mt-1 w-full" required>
-                @foreach ($centros as $centro)
-                <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
-                @endforeach
-            </select>
-            <x-input-error :messages="$errors->get('centro')" class="mt-2" />
-        </div>
-
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
-                type="password"
-                name="password"
-                required autocomplete="new-password" />
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -44,8 +33,8 @@
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                type="password"
-                name="password_confirmation" required autocomplete="new-password" />
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
