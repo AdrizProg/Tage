@@ -25,6 +25,7 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
+
         <!-- Recuérdame -->
         <div class="flex items-center justify-between mb-6">
             <div class="flex items-center">
