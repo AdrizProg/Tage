@@ -19,6 +19,6 @@ jobs:
           username: illian
           key: ${{secrets.PRIVATE_KEY}}
           script: "cd /var/www/html/tage;
-          git pull;
+          git pull origin main;
           npm run build;
           "
