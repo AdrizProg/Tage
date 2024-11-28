@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-use App\Models\Centro;
 
 class RegisteredUserController extends Controller
 {
@@ -20,8 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $centros = Centro::all();
-        return view('auth.register', compact('centros'));
+        return view('auth.register');
     }
 
     /**
@@ -33,16 +31,14 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'centro' => ['required', 'exists:centros,id'], // Asegúrate de validar que el centro existe
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'centro' => $request->centro, // Guarda el centro seleccionado
         ]);
 
         event(new Registered($user));
