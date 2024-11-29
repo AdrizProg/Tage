@@ -19,8 +19,9 @@ jobs:
           username: illian
           key: ${{secrets.PRIVATE_KEY}}
           script: "cd /var/www/html/tage;
-          git stash
+          git stash;
           git pull origin desarrollo;
+          git reset;
           php artisan optimize:clear;
           service php8.3-fpm reload;
           npm run build;
