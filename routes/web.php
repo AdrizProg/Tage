@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RegistroController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,5 +21,7 @@ Route::middleware('auth')->group(function () {
 
 Route::apiResource('RegistroController', RegistroController::class)
 ->middleware(['verified', 'auth:sanctum']);
+
+Route::resource('users', UserController::class)->middleware(['verified', 'auth:sanctum']);
 
 require __DIR__.'/auth.php';
