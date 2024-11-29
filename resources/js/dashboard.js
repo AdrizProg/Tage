@@ -1,6 +1,6 @@
 const app = document.getElementById('app');
 
-export default function nuevo() {
+export default function dashboardView() {
     app.innerHTML = `
       <div class="bg-white shadow-md rounded-lg p-6 max-w-sm">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Hola, Mundo!</h2>
