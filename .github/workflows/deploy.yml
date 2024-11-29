@@ -21,6 +21,6 @@ jobs:
           script: "cd /var/www/html/tage;
           git pull origin desarrollo;
           php artisan optimize:clear;
-          sudo service php8.3-fpm;
+          sudo service php8.3-fpm reload;
           npm run build;
           "
