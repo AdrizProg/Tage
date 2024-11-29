@@ -6,11 +6,11 @@ use Orion\Concerns\DisableAuthorization;
 use Orion\Http\Controllers\Controller;
 use App\Models\Registro;
 
-class registroController extends Controller
+class RegistroController extends Controller
 {
     /**
      * Fully-qualified model class name
      */
-    use DisableAuthorization;
+    // use DisableAuthorization;
     protected $model = Registro::class; // or "App\Models\Post"
 }
