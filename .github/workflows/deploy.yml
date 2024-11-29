@@ -20,5 +20,7 @@ jobs:
           key: ${{secrets.PRIVATE_KEY}}
           script: "cd /var/www/html/tage;
           git pull origin main;
+          php artisan optimize:clear
+          sudo service php8.3-fpm
           npm run build;
           "
