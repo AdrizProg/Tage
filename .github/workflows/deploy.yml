@@ -14,10 +14,10 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@v0.1.8
         with:
-          host: 161.22.40.230
+          host: 200.234.234.24
           port: 2222
-          username: illian
-          key: ${{secrets.PRIVATE_KEY}}
+          username: adri
+          key: ${{secrets.CLAVE}}
           script: "cd /var/www/html/tage;
           git pull origin main;
           npm run build;
