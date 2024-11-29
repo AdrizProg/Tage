@@ -16,7 +16,7 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" placeholder="andres@example.com" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-        
+
         <!-- Centros -->
         <div class="mb-4 text-left">
             <x-input-label for="centro" :value="__('Centro')" />
