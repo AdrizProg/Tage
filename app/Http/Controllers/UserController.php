@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Centro;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
@@ -29,7 +31,9 @@ class UserController extends Controller
     {
         $user = new User();
 
-        return view('user.create', compact('user'));
+        $centros = Centro::all();
+
+        return view('user.create', compact('user'), compact('centros'));
     }
 
     /**
@@ -37,7 +41,12 @@ class UserController extends Controller
      */
     public function store(UserRequest $request): RedirectResponse
     {
-        User::create($request->validated());
+        User::create($request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'centro' => ['required', 'exists:centros,id'],
+        ]));
 
         return Redirect::route('users.index')
             ->with('success', 'User created successfully.');

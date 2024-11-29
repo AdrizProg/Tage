@@ -72,7 +72,7 @@ class User extends Authenticatable
      */
     public function centro()
     {
-        return $this->belongsTo(\App\Models\Centro::class, 'centro', 'id');
+        return $this->belongsTo(\App\Models\Centro::class, 'centros', 'id');
     }
     
     /**

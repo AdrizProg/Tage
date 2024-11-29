@@ -25,7 +25,7 @@
                                 <form method="POST" action="{{ route('users.store') }}"  role="form" enctype="multipart/form-data">
                                     @csrf
 
-                                    @include('user.form')
+                                    @include('auth.register')
                                 </form>
                             </div>
                         </div>
