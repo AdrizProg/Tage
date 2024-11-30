@@ -23,5 +23,5 @@ jobs:
             git pull origin dev;
             git reset;
             php artisan optimize:clear;
-            sudo service php8.3-fpm reload;
+            service php8.3-fpm reload;
             npm run build;"
