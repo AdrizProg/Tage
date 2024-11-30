@@ -20,9 +20,9 @@ jobs:
           key: ${{secrets.CLAVE}}
           script: "cd /var/www/html/tage;
             git stash;
-            git pull;
+            git pull origin main;
             git reset;
             php artisan optimize:clear;
-            service php8.3-fpm reload;
+            sudo service php8.3-fpm reload;
             npm run build;
             npm run build;"
