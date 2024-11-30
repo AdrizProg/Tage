@@ -11,6 +11,12 @@ class RegistrosPolicy
     /**
      * Determine whether the user can view any models.
      */
+
+    protected function includes(): array
+    {
+        return ['antesde', 'durante', 'despuesde', 'compostera', 'user'];
+    }
+
     public function viewAny(User $user): bool
     {
         return True;
