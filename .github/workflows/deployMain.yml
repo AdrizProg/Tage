@@ -1,7 +1,7 @@
 name: deploy
 
 on:
-  push: 
+  push:
     branches:
       - main
   workflow_dispatch:
@@ -19,6 +19,9 @@ jobs:
           username: adri
           key: ${{secrets.CLAVE}}
           script: "cd /var/www/html/tage;
-          git pull origin main;
-          npm run build;
-          "
+            git stash;
+            git pull origin main;
+            git reset;
+            php artisan optimize:clear;
+            sudo service php8.3-fpm reload;
+            npm run build;"
