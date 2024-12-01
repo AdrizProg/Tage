@@ -25,6 +25,9 @@ Route::apiResource('RegistroController', RegistroController::class)
 Route::get('/nuevaCompostera', [ComposteraController::class, 'create'])
     ->middleware(['verified', 'auth:sanctum']);
 
+Route::get('/registro', [RegistroController::class, 'store'])
+    ->middleware(['verified', 'auth:sanctum']);
+
 Route::resource('users', UserController::class)->middleware(['verified', 'auth:sanctum']);
 
 require __DIR__ . '/auth.php';
