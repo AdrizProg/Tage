@@ -22,8 +22,7 @@ class ComposteraController extends Controller
         $composteraNueva->tipo = 1;
         $composteraNueva->save();
 
-        $composteras = Compostera::all();
-        return view('dashboard', compact('composteras'));
+        return redirect(route('dashboard'));
     }
 
     /**
