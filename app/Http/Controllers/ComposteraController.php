@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Compostera;
 
 class ComposteraController extends Controller
 {
@@ -14,12 +15,24 @@ class ComposteraController extends Controller
         //
     }
 
+    public function create(Request $request)
+    {
+        $composteraNueva = new Compostera();
+        $composteraNueva->centro = 5;
+        $composteraNueva->tipo = 1;
+        $composteraNueva->save();
+
+        $composteras = Compostera::all();
+        return view('dashboard', compact('composteras'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $composteras = Compostera::all();
+        return view('dashboard', compact('composteras'));
     }
 
     /**

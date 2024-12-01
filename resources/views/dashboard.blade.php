@@ -1,11 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="">
-
+        <a href="/nuevaCompostera">
+            <x-primary-button>
+                {{ __('Nueva compostera') }}
+            </x-primary-button>
         </a>
-        <x-primary-button>
-            {{ __('Nueva compostera') }}
-        </x-primary-button>
 
         @if (session('token'))
         <p>Token: {{ session('token') }}</p>
