@@ -20,8 +20,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::apiResource('RegistroController', RegistroController::class)
-->middleware(['verified', 'auth:sanctum']);
+    ->middleware(['verified', 'auth:sanctum']);
 
 Route::resource('users', UserController::class)->middleware(['verified', 'auth:sanctum']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
