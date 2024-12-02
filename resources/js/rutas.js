@@ -11,7 +11,7 @@ export default function rutasUrl() {
     }
     currentHash = hash; // Actualiza el hash actual
 
-    if (hash.includes('#composteras')) {
+    if (hash.includes('/composteras')) {
 
     } else if (hash.includes('/dashboard')) {
         dashboardView();

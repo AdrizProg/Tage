@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Despuesde extends Model
+class Ciclo extends Model
 {
-    public function despuesde(): BelongsTo
+    public function ciclo()
     {
-        return $this->belongsTo(Registro::class);
+        return $this->hasMany(Registro::class);
     }
 }

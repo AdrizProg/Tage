@@ -80,7 +80,12 @@ class User extends Authenticatable
      */
     public function registros()
     {
-        return $this->hasMany(\App\Models\Registro::class, 'id', 'usuario');
+        return $this->hasMany(\App\Models\Registro::class);
     }
+
+    // public function user()
+    // {
+    //     return $this->hasMany(Registro::class);
+    // }
     
 }

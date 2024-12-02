@@ -19,7 +19,7 @@ class RegistroPolicy
 
     public function viewAny(User $user): bool
     {
-        return True;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class RegistroPolicy
      */
     public function view(User $user, Registro $registro): bool
     {
-        return True;
+        return true;
     }
 
     /**
@@ -35,7 +35,7 @@ class RegistroPolicy
      */
     public function create(User $user): bool
     {
-        return False;
+        return true;
     }
 
     /**
@@ -43,7 +43,7 @@ class RegistroPolicy
      */
     public function update(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 
     /**
@@ -51,7 +51,7 @@ class RegistroPolicy
      */
     public function delete(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 
     /**
@@ -59,7 +59,7 @@ class RegistroPolicy
      */
     public function restore(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 
     /**
@@ -67,6 +67,6 @@ class RegistroPolicy
      */
     public function forceDelete(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 }

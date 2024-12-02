@@ -22,8 +22,8 @@ return new class extends Migration
             $table->foreign('despuesde')->references('id')->on('despues')->onDelete('cascade');
             $table->unsignedBigInteger('compostera');
             $table->foreign('compostera')->references('id')->on('composteras')->onDelete('cascade');
-            $table->unsignedBigInteger('usuario');
-            $table->foreign('usuario')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -13,26 +13,31 @@ class Registro extends Model
 {
     public function antesde()
     {
-        return $this->hasMany(Antesde::class);
+        return $this->hasOne(Antesde::class);
     }
 
     public function durante()
     {
-        return $this->hasMany(Durante::class);
+        return $this->hasOne(Durante::class);
     }
 
     public function despuesde()
     {
-        return $this->hasMany(Despuesde::class);
+        return $this->hasOne(Despuesde::class);
     }
 
     public function compostera()
     {
-        return $this->hasMany(Compostera::class);
+        return $this->belongsTo(Compostera::class);
     }
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function ciclo()
+    {
+        return $this->belongsTo(Ciclo::class);
     }
 }
