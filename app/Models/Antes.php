@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Registro;
 
-class Despuesde extends Model
+class Antes extends Model
 {
-    public function despuesde(): BelongsTo
+    public function antesde()
     {
         return $this->belongsTo(Registro::class);
     }

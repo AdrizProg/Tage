@@ -14,12 +14,6 @@ return new class extends Migration
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
             $table->boolean('iniCliclo');
-            $table->unsignedBigInteger('antesde');
-            $table->foreign('antesde')->references('id')->on('antes')->onDelete('cascade');
-            $table->unsignedBigInteger('durante');
-            $table->foreign('durante')->references('id')->on('durantes')->onDelete('cascade');
-            $table->unsignedBigInteger('despuesde');
-            $table->foreign('despuesde')->references('id')->on('despues')->onDelete('cascade');
             $table->unsignedBigInteger('compostera');
             $table->foreign('compostera')->references('id')->on('composteras')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');

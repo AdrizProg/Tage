@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/nuevaCompostera', [ComposteraController::class, 'create'])
     ->middleware(['verified', 'auth:sanctum']);
 
-Route::get('/registro', [RegistroController::class, 'store'])
+Route::get('/registro', [ComposteraController::class, 'mostrarRegistro'])
     ->middleware(['verified', 'auth:sanctum']);
 
 Route::resource('users', UserController::class)->middleware(['verified', 'auth:sanctum']);

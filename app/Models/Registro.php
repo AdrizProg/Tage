@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Antesde;
+use App\Models\Antes;
 use App\Models\Durante;
-use App\Models\Despuesde;
+use App\Models\Despues;
 use App\Models\Compostera;
 use App\Models\User;
 
@@ -13,7 +13,7 @@ class Registro extends Model
 {
     public function antesde()
     {
-        return $this->hasOne(Antesde::class);
+        return $this->hasOne(Antes::class);
     }
 
     public function durante()
@@ -23,7 +23,7 @@ class Registro extends Model
 
     public function despuesde()
     {
-        return $this->hasOne(Despuesde::class);
+        return $this->hasOne(Despues::class);
     }
 
     public function compostera()

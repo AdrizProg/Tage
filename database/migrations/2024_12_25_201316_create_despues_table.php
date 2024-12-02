@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('antes', function (Blueprint $table) {
+        Schema::create('despues', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('tempAmbiente')->nullable();
-            $table->tinyInteger('tempCompostera')->nullable();
+            $table->unsignedBigInteger('id_registros');
+            $table->foreign('id_registros')->references('id')->on('registros')->onDelete('cascade');
             $table->tinyInteger('nivelLLenado')->nullable();
-            $table->enum('olor', ['Podrido','Amoniaco','Sin olor','Otro'])->nullable();
-            $table->string('insectos')->nullable();
-            $table->enum('humedad', ['Muy mojado','Seco','Bien','Otro'])->nullable();
-            $table->string('foto')->nullable();
+            $table->string('fotoFinal')->nullable();
             $table->string('observaciones')->nullable();
             $table->timestamps();
         });
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('antes');
+        Schema::dropIfExists('despues');
     }
 };
