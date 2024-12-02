@@ -6,7 +6,7 @@ use App\Models\Registro;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class RegistrosPolicy
+class RegistroPolicy
 {
     /**
      * Determine whether the user can view any models.

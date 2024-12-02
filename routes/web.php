@@ -19,8 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::apiResource('RegistroController', RegistroController::class)
-    ->middleware(['verified', 'auth:sanctum']);
+// Route::apiResource('RegistroController', RegistroController::class)
+//     ->middleware(['verified', 'auth:sanctum']);
 
 Route::get('/nuevaCompostera', [ComposteraController::class, 'create'])
     ->middleware(['verified', 'auth:sanctum']);
