@@ -57,4 +57,9 @@ class ComposteraController extends Controller
     {
         //
     }
+
+    public function crearRegistro() 
+    {
+        return view('/auth/registro');
+    }
 }
