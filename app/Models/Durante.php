@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Durante extends Model
 {
-    public function durante(): BelongsTo
+    public function registro(): BelongsTo
     {
         return $this->belongsTo(Registro::class);
     }
