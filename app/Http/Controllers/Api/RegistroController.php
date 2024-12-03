@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Antesde;
+use App\Models\Antes;
 use Orion\Concerns\DisableAuthorization;
 use Orion\Http\Controllers\Controller;
 use App\Models\Registro;
@@ -17,7 +17,7 @@ class RegistroController extends Controller
 
     public function mostrarAntes()
     {
-        $nuevoAntes = new Antesde();
+        $nuevoAntes = new Antes();
 
         return view('registro');
     }

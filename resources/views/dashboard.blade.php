@@ -6,9 +6,9 @@
             </x-primary-button>
         </a>
 
-        <!-- @if (session('token'))
+        @if (session('token'))
         <p>Token: {{ session('token') }}</p>
-        @endif -->
+        @endif
         <script>
             sessionStorage.setItem('apiToken', @json(session('token')))
         </script>
