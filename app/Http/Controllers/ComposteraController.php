@@ -18,6 +18,7 @@ class ComposteraController extends Controller
     public function create(Request $request)
     {
         $composteraNueva = new Compostera();
+        $composteraNueva->nombre = 'Compostera';
         $composteraNueva->centro = 1;
         $composteraNueva->tipo = 1;
         $composteraNueva->save();
