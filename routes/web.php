@@ -22,10 +22,10 @@ Route::middleware('auth')->group(function () {
 // Route::apiResource('RegistroController', RegistroController::class)
 //     ->middleware(['verified', 'auth:sanctum']);
 
-Route::get('/nuevaCompostera', [ComposteraController::class, 'create'])
+Route::get('nuevaCompostera', [ComposteraController::class, 'create'])
     ->middleware(['verified', 'auth:sanctum']);
 
-Route::get('/registro', [ComposteraController::class, 'mostrarRegistro'])
+Route::get('registro', [ComposteraController::class, 'mostrarRegistro'])
     ->middleware(['verified', 'auth:sanctum']);
 
 Route::resource('users', UserController::class)->middleware(['verified', 'auth:sanctum']);

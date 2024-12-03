@@ -14,27 +14,32 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-100 font-roboto font-sans antialiased">
+<body class="bg-blue-100">
 
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <header class="bg-green-600 p-4 flex items-center justify-between">
+        <img alt="Logo" src="favicon.ico" class="w-15 h-20" />
+
+
         @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        @isset($header)
-        <header class="bg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endisset
+        <div class="flex items-center space-x-4">
 
-        <!-- Page Content -->
-        <main class="container mx-auto p-4">
-            {{ $slot }}
-        </main>
-    </div>
+            <img alt="User Avatar" class="h-8 w-8 rounded-full" height="30" src="https://storage.googleapis.com/a1aa/image/92L9rHMMkS6tBZKeenI7EMYCL76beZg8KvkikxNlv9IQREunA.jpg" width="30" />
+        </div>
+    </header>
+
+    <main class="pt-16">
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
 
 </html>
