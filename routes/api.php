@@ -5,9 +5,14 @@ use Orion\Facades\Orion;
 use App\Http\Controllers\Api\RegistroController;
 use App\Http\Controllers\Api\RegistroComposteraController;
 use App\Http\Controllers\Api\RegistroUserController;
+use App\Http\Controllers\Api\AntesController;
 
 Route::group(['as' => 'api.'], function() {
     Orion::resource('registros', RegistroController::class);
+});
+
+Route::group(['as' => 'api.'], function() {
+    Orion::resource('antes', AntesController::class);
 });
 
 // Route::apiResource('api/RegistroController', RegistroController::class)

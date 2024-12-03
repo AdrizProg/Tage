@@ -14,9 +14,17 @@ export default function rutasUrl() {
 
     if (hash.includes('/composteras')) {
 
-    } else if (hash.includes('/registro')) {
+    } else if (hash.includes('/registro#antes')) {
         hola();
+
+    } else if (hash.includes('/registro#durante')) {
+
+
+    } else if (hash.includes('/registro#despues')) {
+
+
     } else if (hash.includes('/dashboard')) {
         dashboardView();
+
     }
 }
