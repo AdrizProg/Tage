@@ -1,65 +1,93 @@
-<!DOCTYPE html>
-<html lang="es">
+<x-app-layout>
+    <x-slot name="header">
+        <a href="/nuevaCompostera">
+            <x-primary-button>
+                {{ __('Nueva compostera') }}
+            </x-primary-button>
+        </a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Formulario</title>
-</head>
+        @if (session('token'))
+        <p>Token: {{ session('token') }}</p>
+        @endif
+        <script>
+            sessionStorage.setItem('apiToken', @json(session('token')))
+        </script>
+    </x-slot>
 
-<body class="bg-gray-100 p-8">
+    <div class="text-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-96" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
+            <h2 class="text-2xl font-bold mb-6">Antes</h2>
 
-    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold mb-6">Registro de Datos</h2>
-        <form>
-            @csrf <!-- Si usas Laravel, incluye la directiva CSRF -->
+            <form class="w-full max-w-lg">
+                <h1>Temperatura</h1>
 
-            <div class="mb-4">
-                <label for="tempAmbiente" class="block text-sm font-medium text-gray-700">Temperatura Ambiente</label>
-                <input type="number" name="tempAmbiente" id="tempAmbiente" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                            Ambiente
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">
+                        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                    </div>
+
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            Compostera
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                            Nivel llenado
+                        </label>
+                        <input type="range" />
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-2">
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                            Olor
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque">
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                            Insectos
+                        </label>
+                        <div class="relative">
+                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                <option>New Mexico</option>
+                                <option>Missouri</option>
+                                <option>Texas</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                            Humedad
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210">
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                <x-primary-button>
+                    {{ __('Anterior') }}
+                </x-primary-button>
+
+                <x-primary-button>
+                    {{ __('Siguiente') }}
+                </x-primary-button>
             </div>
-
-            <div class="mb-4">
-                <label for="tempCompostera" class="block text-sm font-medium text-gray-700">Temperatura Compostera</label>
-                <input type="number" name="tempCompostera" id="tempCompostera" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
-            </div>
-
-            <div class="mb-4">
-                <label for="nivelLLenado" class="block text-sm font-medium text-gray-700">Nivel de Llenado</label>
-                <input type="number" name="nivelLLenado" id="nivelLLenado" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
-            </div>
-
-            <div class="mb-4">
-                <label for="olor" class="block text-sm font-medium text-gray-700">Olor</label>
-                <select name="olor" id="olor" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
-                    <option value="">Seleccione</option>
-                    <option value="Podrido">Podrido</option>
-                    <option value="Amoniaco">Amoniaco</option>
-                    <option value="Sin olor">Sin olor</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-
-            <div class="mb-4">
-                <label for="insectos" class="block text-sm font-medium text-gray-700">Insectos</label>
-                <input type="text" name="insectos" id="insectos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
-            </div>
-
-            <div class="mb-4">
-                <label for="humedad" class="block text-sm font-medium text-gray-700">Humedad</label>
-                <select name="humedad" id="humedad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
-                    <option value="">Seleccione</option>
-                    <option value="Muy mojado">Muy mojado</option>
-                    <option value="Seco">Seco</option>
-                    <option value="Bien">Bien</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-
-            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-        </form>
+        </div>
     </div>
-</body>
-
-</html>
+</x-app-layout>

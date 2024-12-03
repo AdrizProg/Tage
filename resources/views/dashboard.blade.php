@@ -10,7 +10,7 @@
         <p>Token: {{ session('token') }}</p>
         @endif
         <script>
-            sessionStorage.setItem('apiToken', @json(session('token')))
+            sessionStorage.setItem('apiToken', "{{session('token')}}")
         </script>
     </x-slot>
 

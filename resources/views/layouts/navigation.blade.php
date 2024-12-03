@@ -3,6 +3,6 @@
         {{ __('Composteras') }}
     </x-nav-link>
     <x-nav-link :href="route('registro')" :active="request()->routeIs('registro')">
-        {{ __('registro') }}
+        {{ __('Hacer un registro') }}
     </x-nav-link>
 </nav>
