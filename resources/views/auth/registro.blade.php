@@ -34,7 +34,7 @@
                 </ul>
             </div>
 
-            @include('auth.durante')
+            @include('auth.antes')
         </div>
     </div>
 </x-app-layout>
