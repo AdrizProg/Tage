@@ -7,7 +7,7 @@ use App\Models\Registro;
 
 class Antes extends Model
 {
-    public function antesde()
+    public function registro()
     {
         return $this->belongsTo(Registro::class);
     }

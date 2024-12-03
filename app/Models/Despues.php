@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Registro;
 
 class Despues extends Model
 {
-    public function despuesde()
+    public function registro()
     {
         return $this->belongsTo(Registro::class);
     }

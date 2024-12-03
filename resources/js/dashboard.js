@@ -27,7 +27,6 @@ async function fetchData() { // Cambiamos el nombre de la función para evitar c
 
 window.addEventListener('load', async () => {
   await fetchData(); // Llama a la función fetchData al cargar la página
-  console.log(array.data); // Muestra el array después de la carga
   arrayVer()
 });
 

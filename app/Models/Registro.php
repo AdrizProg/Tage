@@ -35,9 +35,4 @@ class Registro extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function ciclo()
-    {
-        return $this->belongsTo(Ciclo::class);
-    }
 }

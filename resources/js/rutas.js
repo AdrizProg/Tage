@@ -1,4 +1,5 @@
 import dashboardView from './dashboard';
+import hola from './registro';
 
 let currentHash = "";
 
@@ -13,6 +14,8 @@ export default function rutasUrl() {
 
     if (hash.includes('/composteras')) {
 
+    } else if (hash.includes('/registro')) {
+        hola();
     } else if (hash.includes('/dashboard')) {
         dashboardView();
     }

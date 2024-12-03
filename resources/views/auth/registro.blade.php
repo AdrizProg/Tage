@@ -43,7 +43,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                             Nivel llenado
                         </label>
-                        <input type="range" />
+                        <input type="range" id="nivel"/>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-2">
