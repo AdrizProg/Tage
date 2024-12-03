@@ -1,4 +1,6 @@
 <x-guest-layout>
+    <img alt="Logo" class="mx-auto mb-8" height="100" src="favicon.ico" width="100" />
+
     <h2 class="text-2xl font-bold mb-6 text-center text-green-700">Nuevo usuario</h2>
     <form method="POST" action="{{ route('register') }}">
         @csrf

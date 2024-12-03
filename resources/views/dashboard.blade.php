@@ -5,6 +5,13 @@
                 {{ __('Nueva compostera') }}
             </x-primary-button>
         </a>
+
+        @if (session('token'))
+        <p>Token: {{ session('token') }}</p>
+        @endif
+        <script>
+            sessionStorage.setItem('apiToken', "{{session('token')}}")
+        </script>
     </x-slot>
 
     <div id="dash"></div>
