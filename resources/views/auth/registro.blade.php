@@ -10,17 +10,17 @@
         <p>Token: {{ session('token') }}</p>
         @endif
         <script>
-            sessionStorage.setItem('apiToken', @json(session('token')))
+            sessionStorage.setItem('apiToken', "{{session('token')}}")
         </script>
     </x-slot>
 
-    <div class="text-center">
+    <div class="text-center" style="margin-left: 35%; margin-top: 5%;">
         <div class="bg-white p-8 rounded-lg shadow-lg w-96" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
             <h2 class="text-2xl font-bold mb-6">Antes</h2>
 
-            <form class="w-full max-w-lg">
-                <h1>Temperatura</h1>
+            @include('auth.antes')
 
+<<<<<<< Updated upstream
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -80,6 +80,9 @@
             </form>
 
             <div>
+=======
+            <div class="flex flex-row space-x-4 space-x">
+>>>>>>> Stashed changes
                 <x-primary-button>
                     {{ __('Anterior') }}
                 </x-primary-button>
