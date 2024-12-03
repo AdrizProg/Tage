@@ -14,5 +14,5 @@
         </script>
     </x-slot>
 
-<div id="dash"></div>
+    <div id="dash"></div>
 </x-app-layout>
