@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
-        ->middleware(['verified', 'auth:sanctum']);;
+        ->middleware(['verified', 'auth:sanctum']);
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
