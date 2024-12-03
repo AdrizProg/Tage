@@ -1,4 +1,4 @@
-<h2 class="text-2xl font-bold mb-6">Antes</h2>
+<h2 class="text-2xl font-bold mb-6">Durante</h2>
 
 <form class="w-full max-w-lg">
     <h1>Temperatura</h1>
