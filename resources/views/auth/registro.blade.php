@@ -1,14 +1,65 @@
-<x-guest-layout>
-    <form class="max-w-md mx-auto">
+<!DOCTYPE html>
+<html lang="es">
 
-        <div class="relative z-0 w-full mb-5 group">
-            <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Formulario</title>
+</head>
 
-            <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Temperatura ambiente
-            </label>
-        </div>
+<body class="bg-gray-100 p-8">
 
-        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-    </form>
-</x-guest-layout>
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-6">Registro de Datos</h2>
+        <form>
+            @csrf <!-- Si usas Laravel, incluye la directiva CSRF -->
+
+            <div class="mb-4">
+                <label for="tempAmbiente" class="block text-sm font-medium text-gray-700">Temperatura Ambiente</label>
+                <input type="number" name="tempAmbiente" id="tempAmbiente" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+            </div>
+
+            <div class="mb-4">
+                <label for="tempCompostera" class="block text-sm font-medium text-gray-700">Temperatura Compostera</label>
+                <input type="number" name="tempCompostera" id="tempCompostera" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+            </div>
+
+            <div class="mb-4">
+                <label for="nivelLLenado" class="block text-sm font-medium text-gray-700">Nivel de Llenado</label>
+                <input type="number" name="nivelLLenado" id="nivelLLenado" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+            </div>
+
+            <div class="mb-4">
+                <label for="olor" class="block text-sm font-medium text-gray-700">Olor</label>
+                <select name="olor" id="olor" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                    <option value="">Seleccione</option>
+                    <option value="Podrido">Podrido</option>
+                    <option value="Amoniaco">Amoniaco</option>
+                    <option value="Sin olor">Sin olor</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="insectos" class="block text-sm font-medium text-gray-700">Insectos</label>
+                <input type="text" name="insectos" id="insectos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+            </div>
+
+            <div class="mb-4">
+                <label for="humedad" class="block text-sm font-medium text-gray-700">Humedad</label>
+                <select name="humedad" id="humedad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                    <option value="">Seleccione</option>
+                    <option value="Muy mojado">Muy mojado</option>
+                    <option value="Seco">Seco</option>
+                    <option value="Bien">Bien</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
