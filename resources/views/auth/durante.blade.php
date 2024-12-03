@@ -68,13 +68,3 @@
     </label>
     <textarea></textarea>
 </form>
-
-<div class="flex flex-row space-x-4 space-x">
-    <x-primary-button>
-        {{ __('Cancelar') }}
-    </x-primary-button>
-
-    <x-primary-button>
-        {{ __('Siguiente') }}
-    </x-primary-button>
-</div>
