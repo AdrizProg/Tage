@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [ComposteraController::class, 'store'])
+Route::get('dashboard', [ComposteraController::class, 'store'])
     ->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -28,6 +28,7 @@ Route::get('nuevaCompostera', [ComposteraController::class, 'create'])
 Route::get('registro', [ComposteraController::class, 'mostrarRegistro'])
     ->middleware(['verified', 'auth:sanctum']);
 
-Route::resource('users', UserController::class)->middleware(['verified', 'auth:sanctum']);
+Route::resource('users', UserController::class)
+    ->middleware(['verified', 'auth:sanctum']);
 
 require __DIR__ . '/auth.php';
