@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('antes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('registro.id');
-            $table->foreign('registro.id')->references('id')->on('registros')->onDelete('cascade');
+            $table->unsignedBigInteger('registro_id');
+            $table->foreign('registro_id')->references('id')->on('registros')->onDelete('cascade');
             $table->tinyInteger('tempAmbiente')->nullable();
             $table->tinyInteger('tempCompostera')->nullable();
             $table->tinyInteger('nivelLLenado')->nullable();
