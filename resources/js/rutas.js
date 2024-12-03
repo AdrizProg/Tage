@@ -1,5 +1,5 @@
 import dashboardView from './dashboard';
-import hola from './registro';
+import hola from './registroAntes';
 
 let currentHash = "";
 
