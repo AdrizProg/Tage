@@ -21,7 +21,19 @@ class AntesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar los datos de entrada
+        $validatedData = $request->validate([
+            'registro_id' => 'required|integer', // Campo requerido y debe ser un número entero
+            'tempAmbiente' => 'nullable|numeric', // Campo opcional, debe ser numérico
+            'tempCompostera' => 'nullable|numeric',
+            'nivelLlenado' => 'nullable|integer', // Entero opcional
+            'olor' => 'nullable|in:Podrido', // Valor opcional de tipo enum (ajusta los valores según corresponda)
+            'insectos' => 'nullable|in:Y,N',
+            'humedad' => 'nullable|in:Muy mojado',
+            'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $registro = Antes::create($validatedData);
     }
 
     /**

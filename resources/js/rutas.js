@@ -1,5 +1,7 @@
 import dashboardView from './dashboard';
-import hola from './registroAntes';
+import obtenerDatosAntes from './registrosSubir';
+import uploadArray from './registrosSubir';
+import array from './registrosSubir';
 
 let currentHash = "";
 
@@ -14,8 +16,12 @@ export default function rutasUrl() {
 
     if (hash.includes('/composteras')) {
 
-    } else if (hash.includes('/registro#antes')) {
-        hola();
+    } else if (hash.includes('/registro')) {
+        const boton = document.getElementById('botonAntes');
+        boton.addEventListener('click', async () => {
+            obtenerDatosAntes();
+            uploadArray();
+          });
 
     } else if (hash.includes('/registro#durante')) {
 
@@ -25,6 +31,5 @@ export default function rutasUrl() {
 
     } else if (hash.includes('/dashboard')) {
         dashboardView();
-
     }
 }
