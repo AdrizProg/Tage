@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Centro;
 use App\Models\Compostera;
-use GuzzleHttp\Promise\Create;
+use App\Models\Antes;
+use App\Models\Registro;
 use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,7 +19,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
         Centro::factory(50)->create();
 
         User::factory()->create([
@@ -32,5 +32,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Compostera::factory(3)->create();
+        Registro::factory(10)->create();
+        Antes::factory(10)->create();
     }
 }
