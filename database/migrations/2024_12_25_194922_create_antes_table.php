@@ -19,8 +19,11 @@ return new class extends Migration
             $table->tinyInteger('tempCompostera')->nullable();
             $table->tinyInteger('nivelLLenado')->nullable();
             $table->enum('olor', ['Podrido','Amoniaco','Sin olor','Otro'])->nullable();
+            $table->string('otroOlor')->nullable();
             $table->enum('insectos', ['Moscas','Larbas','Ratones','Otro'])->nullable();
+            $table->string('otroInsecto')->nullable();
             $table->enum('humedad', ['Muy mojado','Seco','Bien','Otro'])->nullable();
+            $table->string('otroHumedad')->nullable();
             $table->string('foto')->nullable();
             $table->string('observaciones')->nullable();
             $table->timestamps();
