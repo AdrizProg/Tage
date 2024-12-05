@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('durantes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_registros');
-            $table->foreign('id_registros')->references('id')->on('registros')->onDelete('cascade');
+            $table->unsignedBigInteger('registro_id');
+            $table->foreign('registro_id')->references('id')->on('registros')->onDelete('cascade');
             $table->enum('riego', ['Si','No'])->nullable();
             $table->enum('revolver', ['Si','No'])->nullable();
             $table->tinyInteger('aporteVerde')->nullable();

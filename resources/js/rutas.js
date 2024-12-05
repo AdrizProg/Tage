@@ -1,6 +1,7 @@
 import dashboardView from './dashboard';
-import obtenerDatosAntes from './registrosSubir';
-import uploadArray from './registrosSubir';
+import mostrarRegistros from './cambiarRegistro';
+import uploadAntes from './subirAntes';
+import uploadDurante from './subirDurante';
 import hola from './registroAntes';
 
 let currentHash = "";
@@ -16,29 +17,48 @@ export default function rutasUrl() {
 
     if (hash.includes('/composteras')) {
 
+    }  else if (hash.includes('/registro#durante')) {
+
+        mostrarRegistros(2);
+
+        const boton = document.getElementById('boton');
+                boton.addEventListener('click', async () => {
+
+                    uploadDurante();
+
+                    // localStorage.setItem(2, true)
+                });
+
     } else if (hash.includes('/registro') || hash.includes('/registro#antes')) {
-        const olorMostrar = document.getElementById('olor');
-        olorMostrar.addEventListener('change',hola);
 
-        const insectosMostrar = document.getElementById('insectos');
-        insectosMostrar.addEventListener('change',hola);
+        mostrarRegistros(1);
 
-        const humedadMostrar = document.getElementById('humedad');
-        humedadMostrar.addEventListener('change',hola);
+        // const boton = document.getElementById('boton');
+        // boton.addEventListener('click', () => {
 
-        const boton = document.getElementById('botonAntes');
-        boton.addEventListener('click', async () => {
-            obtenerDatosAntes();
-            uploadArray();
-          });
+                const olorMostrar = document.getElementById('olor');
+                olorMostrar.addEventListener('change', hola);
 
-    } else if (hash.includes('/registro#durante')) {
+                const insectosMostrar = document.getElementById('insectos');
+                insectosMostrar.addEventListener('change', hola);
 
+                const humedadMostrar = document.getElementById('humedad');
+                humedadMostrar.addEventListener('change', hola);
 
-    } else if (hash.includes('/registro#despues')) {
+                const boton = document.getElementById('boton');
+                boton.addEventListener('click', async () => {
 
+                    // localStorage.setItem(1, true)
+
+                    uploadAntes();
+                    
+                location.replace('http://tage.test/registro#durante');
+                });
+        // });
 
     } else if (hash.includes('/dashboard')) {
         dashboardView();
     }
 }
+
+window.addEventListener('hashchange', rutasUrl);
