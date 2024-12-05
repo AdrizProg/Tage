@@ -16,7 +16,7 @@ export default function rutasUrl() {
 
     if (hash.includes('/composteras')) {
 
-    } else if (hash.includes('/registro')) {
+    } else if (hash.includes('/registro') || hash.includes('/registro#antes')) {
         const boton = document.getElementById('botonAntes');
         boton.addEventListener('click', async () => {
             obtenerDatosAntes();
