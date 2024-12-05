@@ -26,10 +26,22 @@ export default function rutasUrl() {
 
                     uploadDurante();
 
+                    location.replace('http://tage.test/registro#despues');
+                });
+
+    } else if (hash.includes('/registro#despues')) {
+
+        mostrarRegistros(3);
+
+        const boton = document.getElementById('boton');
+                boton.addEventListener('click', async () => {
+
+                    uploadDespues();
+
                     // localStorage.setItem(2, true)
                 });
 
-    } else if (hash.includes('/registro') || hash.includes('/registro#antes')) {
+    }else if (hash.includes('/registro') || hash.includes('/registro#antes')) {
 
         mostrarRegistros(1);
 

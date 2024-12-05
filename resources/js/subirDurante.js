@@ -9,7 +9,7 @@ export function obtenerDatosDurante() {
     const tipoAporteVerde = document.getElementById('tipoAporteVerde').value;
     const aporteSeco = document.getElementById('aporteSeco').value;
     const tipoAporteSeco = document.getElementById('tipoAporteSeco').value;
-    const observaciones = document.getElementById('observacionesAntes').value;
+    const observaciones = document.getElementById('observacionesDurante').value;
 
     array = [{ registro_id: 2, riego: riego, revolver: revolver, aporteVerde: aporteVerde, tipoAporteVerde: tipoAporteVerde, aporteSeco: aporteSeco, tipoAporteSeco: tipoAporteSeco, foto: null, observaciones: observaciones }];
 }
@@ -35,6 +35,6 @@ export default async function uploadDurante() {
       const result = await response.json();
       console.log('Respuesta del servidor:', result);
     } catch (error) {
-      console.error('Error al subir los datos:', error);
+      console.error('Error al subir los datos:' + error);
     }
   }
