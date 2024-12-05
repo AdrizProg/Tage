@@ -8,9 +8,17 @@ use App\Models\Durante;
 use App\Models\Despues;
 use App\Models\Compostera;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Registro extends Model
 {
+    use HasFactory;
+
+    protected $fillable = [
+        'compostera',
+        'user_id',
+    ];
+
     public function antesde()
     {
         return $this->hasOne(Antes::class);
