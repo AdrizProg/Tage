@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Centro;
+use App\Models\Compostera;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -28,5 +30,7 @@ class DatabaseSeeder extends Seeder
             'centro' => 1,
             // 'role' => 'admin',
         ]);
+
+        Compostera::factory(3)->create();
     }
 }

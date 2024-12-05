@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('composteras', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
+            $table->string('nombre');
             $table->enum('tipo', ['aporte', 'degradacion', 'maduracion']);
             $table->unsignedBigInteger('centro');
             $table->foreign('centro')->references('id')->on('centros')->onDelete('cascade');

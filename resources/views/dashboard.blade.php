@@ -12,7 +12,7 @@
         <a href="#compostera{{ $compostera->id }}" class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
             <div class="p-4 text-center">
                 <h2 class="text-xl font-bold mb-2">
-                    {{ $compostera->id }}
+                    {{ $compostera->nombre }}
                 </h2>
             </div>
             <img alt="A placeholder image of 400x400 pixels with a gray background and white text in the center" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/xno9T45D0GI8Jl9ryOq578L6TUkdReN4IKWVsmzeQedjTvsnA.jpg" width="400" />
