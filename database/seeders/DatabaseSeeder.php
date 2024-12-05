@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('admin123'),
             'remember_token' => Str::random(10),
-            'centro' => 1,
+            'centro_id' => 1,
             // 'role' => 'admin',
         ]);
 

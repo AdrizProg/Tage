@@ -40,7 +40,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'centro',
+        'centro_id',
         'password',
     ];
 
@@ -54,7 +54,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-        /**
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -74,7 +74,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(\App\Models\Centro::class, 'centros', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -87,5 +87,5 @@ class User extends Authenticatable
     // {
     //     return $this->hasMany(Registro::class);
     // }
-    
+
 }

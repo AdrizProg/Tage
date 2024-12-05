@@ -20,7 +20,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->unsignedBigInteger('centro_id');
             $table->foreign('centro_id')->references('id')->on('centros')->onDelete('cascade');
-            $table->integer('admin');
+            $table->integer('admin')->default('0');
             $table->timestamps();
         });
 
