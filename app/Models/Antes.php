@@ -13,8 +13,11 @@ class Antes extends Model
         'tempCompostera',
         'nivelLlenado',
         'olor',
+        'otroOlor',
         'insectos',
+        'otroInsecto',
         'humedad',
+        'otroHumedad',
         'foto',
     ];
     

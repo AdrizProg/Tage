@@ -27,10 +27,15 @@ class AntesController extends Controller
             'tempAmbiente' => 'nullable|numeric', // Campo opcional, debe ser numérico
             'tempCompostera' => 'nullable|numeric',
             'nivelLlenado' => 'nullable|integer', // Entero opcional
-            'olor' => 'nullable|in:Podrido', // Valor opcional de tipo enum (ajusta los valores según corresponda)
-            'insectos' => 'nullable|in:Y,N',
-            'humedad' => 'nullable|in:Muy mojado',
-            'foto' => 'nullable|image|max:2048',
+            'olor' => 'nullable|in:Podrido,Amoniaco,Sin olor,Otro', // Enum actualizado
+            'insectos' => 'nullable|in:Moscas,Larbas,Ratones,Otro', // Enum actualizado
+            'humedad' => 'nullable|in:Muy mojado,Bien,Seco,Otro', // Enum actualizado
+            'foto' => 'nullable|image|max:2048', // Campo opcional para imágenes
+        
+            // Nuevos campos de texto para especificar otros valores
+            'otroOlor' => 'nullable|string|max:255', // Campo opcional de texto
+            'otroInsecto' => 'nullable|string|max:255', // Campo opcional de texto
+            'otroHumedad' => 'nullable|string|max:255', // Campo opcional de texto
         ]);
 
         $registro = Antes::create($validatedData);

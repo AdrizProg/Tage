@@ -1,7 +1,6 @@
 import dashboardView from './dashboard';
 import obtenerDatosAntes from './registrosSubir';
 import uploadArray from './registrosSubir';
-import array from './registrosSubir';
 import hola from './registroAntes';
 
 let currentHash = "";
