@@ -61,9 +61,10 @@
                 <select id="olor"
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state">
-                    <option>podrido </option>
-                    <option>Bueno</option>
-                    <option>Malo</option>
+                    <option>Podrido</option>
+                    <option>Amoniaco</option>
+                    <option>Sin olor</option>
+                    <option>Otro</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -81,9 +82,10 @@
                 <select id="insectos"
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state">
-                    <option>moscas</option>
-                    <option>larbas</option>
-                    <option>gusanos</option>
+                    <option>Moscas</option>
+                    <option>Larbas</option>
+                    <option>Ratones</option>
+                    <option>Otro</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -100,8 +102,9 @@
             <div class="relative">
                 <select id="insectos" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                     <option>Muy mojado</option>
-                    <option>Poco mojado</option>
+                    <option>Bien</option>
                     <option>Seco</option>
+                    <option>Otro</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
