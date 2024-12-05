@@ -64,6 +64,7 @@
                     <option>Podrido</option>
                     <option>Amoniaco</option>
                     <option>Sin olor</option>
+                    <option>Otro</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -84,6 +85,7 @@
                     <option>Moscas</option>
                     <option>Larbas</option>
                     <option>Ratones</option>
+                    <option>Otro</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -104,6 +106,7 @@
                     <option>Muy mojado</option>
                     <option>Bien</option>
                     <option>Seco</option>
+                    <option>Otro</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
