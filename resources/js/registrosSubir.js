@@ -9,11 +9,12 @@ export default function obtenerDatosAntes() {
   const tempComp = document.getElementById('tempCompostera').value;
   const nivLLeno = document.getElementById('nivelLlenado').value;
   const olor = document.getElementById('olor').value;
+  const textOlor = document.getElementById('textOlor');
   const insectos = document.getElementById('insectos').value;
   const humedad = document.getElementById('humedad').value;
   const observaciones = document.getElementById('observacionesAntes').value;
 
-  array = [{registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: 'Podrido', insectos: 'N', humedad: 'Muy mojado', foto: null, observaciones: observaciones }];
+  array = [{registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, insectos: insectos, humedad: humedad, foto: null, observaciones: observaciones }];
 
   console.log(array)
 }
