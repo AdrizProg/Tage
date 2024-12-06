@@ -258,7 +258,7 @@ export default function mostrarRegistros(e) {
     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
         Observaciones
     </label>
-    <textarea></textarea>
+    <textarea id="onservacionesDespues" ></textarea>
 </form>
     `;
     }

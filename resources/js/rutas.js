@@ -2,6 +2,7 @@ import dashboardView from './dashboard';
 import mostrarRegistros from './cambiarRegistro';
 import uploadAntes from './subirAntes';
 import uploadDurante from './subirDurante';
+import uploadDespues from './subirDespues';
 import hola from './registroAntes';
 
 let currentHash = "";
@@ -17,55 +18,55 @@ export default function rutasUrl() {
 
     if (hash.includes('/composteras')) {
 
-    }  else if (hash.includes('/registro#durante')) {
+    } else if (hash.includes('/registro#durante')) {
 
         mostrarRegistros(2);
 
         const boton = document.getElementById('boton');
-                boton.addEventListener('click', async () => {
+        boton.addEventListener('click', async () => {
 
-                    uploadDurante();
+            uploadDurante();
 
-                    location.replace('http://tage.test/registro#despues');
-                });
+            location.replace('http://tage.test/registro#despues');
+        });
 
     } else if (hash.includes('/registro#despues')) {
 
         mostrarRegistros(3);
 
         const boton = document.getElementById('boton');
-                boton.addEventListener('click', async () => {
+        boton.addEventListener('click', async () => {
 
-                    uploadDespues();
+            uploadDespues();
 
-                    // localStorage.setItem(2, true)
-                });
+            location.replace('http://tage.test/dashboard');
+        });
 
-    }else if (hash.includes('/registro') || hash.includes('/registro#antes')) {
+    } else if (hash.includes('/registro') || hash.includes('/registro#antes')) {
 
         mostrarRegistros(1);
 
         // const boton = document.getElementById('boton');
         // boton.addEventListener('click', () => {
 
-                const olorMostrar = document.getElementById('olor');
-                olorMostrar.addEventListener('change', hola);
+        const olorMostrar = document.getElementById('olor');
+        olorMostrar.addEventListener('change', hola);
 
-                const insectosMostrar = document.getElementById('insectos');
-                insectosMostrar.addEventListener('change', hola);
+        const insectosMostrar = document.getElementById('insectos');
+        insectosMostrar.addEventListener('change', hola);
 
-                const humedadMostrar = document.getElementById('humedad');
-                humedadMostrar.addEventListener('change', hola);
+        const humedadMostrar = document.getElementById('humedad');
+        humedadMostrar.addEventListener('change', hola);
 
-                const boton = document.getElementById('boton');
-                boton.addEventListener('click', async () => {
+        const boton = document.getElementById('boton');
+        boton.addEventListener('click', async () => {
 
-                    // localStorage.setItem(1, true)
+            // localStorage.setItem(1, true)
 
-                    uploadAntes();
-                    
-                location.replace('http://tage.test/registro#durante');
-                });
+            uploadAntes();
+
+            location.replace('http://tage.test/registro#durante');
+        });
         // });
 
     } else if (hash.includes('/dashboard')) {
