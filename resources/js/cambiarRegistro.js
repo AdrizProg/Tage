@@ -30,6 +30,14 @@ export default function mostrarRegistros(e) {
 <form class="w-full max-w-lg">
     <h1>Temperatura</h1>
 
+    <div id="seleccionarComposteraDiv" name="seleccionarComposteraDiv" class="relative w-64">
+        <select id="seleccionarComposteraSelect" name="seleccionarComposteraSelect" required class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500 appearance-none">
+            <option>
+            1º Compostera
+            </option>
+        </select>
+    </div>
+
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
