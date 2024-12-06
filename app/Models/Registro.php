@@ -15,6 +15,7 @@ class Registro extends Model
     use HasFactory;
 
     protected $fillable = [
+        'iniCliclo',
         'compostera',
         'user_id',
     ];

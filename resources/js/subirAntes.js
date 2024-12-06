@@ -1,9 +1,11 @@
+import idRegistro from './selectIdRegistro';
+import newRegistro from './crearRegistro';
+
 let array = [];
 const urlAntes = 'http://tage.test/api/antes';
-const urlDurante = 'http://tage.test/api/durante';
 const token = sessionStorage.getItem('apiToken');
 
-function obtenerDatosAntes() {
+function obtenerDatosAntes(idReg) {
   const tempAmb = document.getElementById('tempAmbiente').value;
   const tempComp = document.getElementById('tempCompostera').value;
   const nivLLeno = document.getElementById('nivelLlenado').value;
@@ -17,48 +19,50 @@ function obtenerDatosAntes() {
     const textInsectos = document.getElementById('textInsectos').value;
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else if (insectos == 'Otro' && humedad == 'Otro') {
     const textInsectos = document.getElementById('textInsectos').value;
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else if (olor == 'Otro' && humedad == 'Otro') {
     const textOlor = document.getElementById('textOlor').value;
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else if (olor == 'Otro' && insectos == 'Otro') {
     const textOlor = document.getElementById('textOlor').value;
     const textInsectos = document.getElementById('textInsectos').value;
 
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   } else if (olor == 'Otro') {
     const textOlor = document.getElementById('textOlor').value;
 
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   } else if (insectos == 'Otro') {
     const textInsectos = document.getElementById('textInsectos').value;
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   } else if (humedad == 'Otro') {
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else {
-    array = [{ registro_id: 2, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   }
 }
 
 export default async function uploadAntes() {
-  obtenerDatosAntes();
+  newRegistro();
+  const id = await idRegistro();
+  obtenerDatosAntes(id);
   try {
     const response = await fetch(urlAntes, {
       method: 'POST', // Usamos POST para enviar datos
@@ -76,10 +80,13 @@ export default async function uploadAntes() {
     // }
 
     const result = await response.json();
+    console.log(idMasReciente)
     console.log('Respuesta del servidor:', result);
   } catch (error) {
     console.error('Error al subir los datos:', error);
   }
+
+  location.replace('http://tage.test/registro#durante');
 }
 
 

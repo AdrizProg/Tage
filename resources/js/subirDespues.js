@@ -1,16 +1,19 @@
+import idRegistro from './selectIdRegistro';
+
 let array = [];
 const urlDespues = 'http://tage.test/api/despues';
 const token = sessionStorage.getItem('apiToken');
 
-function obtenerDatosDespues() {
+function obtenerDatosDespues(idReg) {
     const nivLLeno = document.getElementById('nivelLlenado').value;
     const observaciones = document.getElementById('onservacionesDespues').value;
 
-    array = [{ registro_id: 2, nivelLLenado: nivLLeno, fotoFinal: null, observaciones: observaciones}];
+    array = [{ registro_id: idReg, nivelLLenado: nivLLeno, fotoFinal: null, observaciones: observaciones}];
 }
 
 export default async function uploadDespues() {
-    obtenerDatosDespues();
+    const id = await idRegistro();
+    obtenerDatosDespues(id);
     try {
       const response = await fetch(urlDespues, {
         method: 'POST', // Usamos POST para enviar datos

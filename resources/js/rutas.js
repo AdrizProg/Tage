@@ -4,6 +4,7 @@ import uploadAntes from './subirAntes';
 import uploadDurante from './subirDurante';
 import uploadDespues from './subirDespues';
 import hola from './registroAntes';
+import idRegistro from './selectIdRegistro';
 
 let currentHash = "";
 
@@ -63,9 +64,11 @@ export default function rutasUrl() {
 
             // localStorage.setItem(1, true)
 
+            // idRegistro();
+
             uploadAntes();
 
-            location.replace('http://tage.test/registro#durante');
+            // location.replace('http://tage.test/registro#durante');
         });
         // });
 

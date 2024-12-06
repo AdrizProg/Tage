@@ -1,8 +1,10 @@
+import idRegistro from './selectIdRegistro';
+
 let array = [];
 const urlDurante = 'http://tage.test/api/durante';
 const token = sessionStorage.getItem('apiToken');
 
-export function obtenerDatosDurante() {
+export function obtenerDatosDurante(idReg) {
     const riego = document.getElementById('riego').value;
     const revolver = document.getElementById('revolver').value;
     const aporteVerde = document.getElementById('aporteVerde').value;
@@ -11,11 +13,12 @@ export function obtenerDatosDurante() {
     const tipoAporteSeco = document.getElementById('tipoAporteSeco').value;
     const observaciones = document.getElementById('observacionesDurante').value;
 
-    array = [{ registro_id: 2, riego: riego, revolver: revolver, aporteVerde: aporteVerde, tipoAporteVerde: tipoAporteVerde, aporteSeco: aporteSeco, tipoAporteSeco: tipoAporteSeco, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, riego: riego, revolver: revolver, aporteVerde: aporteVerde, tipoAporteVerde: tipoAporteVerde, aporteSeco: aporteSeco, tipoAporteSeco: tipoAporteSeco, foto: null, observaciones: observaciones }];
 }
 
 export default async function uploadDurante() {
-    obtenerDatosDurante();
+  const id = await idRegistro();
+    obtenerDatosDurante(id);
     try {
       const response = await fetch(urlDurante, {
         method: 'POST', // Usamos POST para enviar datos

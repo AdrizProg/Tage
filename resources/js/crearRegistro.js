@@ -1,18 +1,17 @@
 let array = [];
-const urlDespues = 'http://tage.test/api/registro';
+const urlRegistros = 'http://tage.test/api/registros';
 const token = sessionStorage.getItem('apiToken');
 
-function obtenerDatosDespues() {
-    const nivLLeno = document.getElementById('nivelLlenado').value;
-    const observaciones = document.getElementById('onservacionesDespues').value;
+function obtenerDatosRegistro() {
+    const compostera = 1;
 
-    array = [{ registro_id: 2, nivelLLenado: nivLLeno, fotoFinal: null, observaciones: observaciones}];
+    array = [{ iniCliclo: 0, compostera: compostera, user_id: 1}];
 }
 
-export default async function uploadDespues() {
-    obtenerDatosDespues();
+export default async function newRegistro() {
+    obtenerDatosRegistro();
     try {
-      const response = await fetch(urlDespues, {
+      const response = await fetch(urlRegistros, {
         method: 'POST', // Usamos POST para enviar datos
         headers: {
           'Authorization': `Bearer ${token}`, // Autenticación con el token
