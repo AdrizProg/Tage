@@ -28,8 +28,8 @@
 
         <div class="flex items-center space-x-4">
             <a href="nuevaCompostera">
-                <button class="bg-white text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
-                    <i class="fas fa-plus"></i>
+                <button class="flex items-center bg-white text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
+                    <i class="fas fa-plus mr-1"></i>
                     Compostera
                 </button>
             </a>
