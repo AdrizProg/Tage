@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\RegistroController;
 use App\Http\Controllers\Api\RegistroComposteraController;
 use App\Http\Controllers\Api\RegistroUserController;
 use App\Http\Controllers\Api\RegistroAntesController;
+use App\Http\Controllers\Api\RegistroDuranteController;
+use App\Http\Controllers\Api\RegistroDespuesController;
 use App\Http\Controllers\Api\AntesController;
 use App\Http\Controllers\Api\DuranteController;
 use App\Http\Controllers\Api\DespuesController;
@@ -19,8 +21,8 @@ Route::group(['as' => 'api.'], function () {
     Orion::hasManyResource('registros', 'composteras', RegistroComposteraController::class);
     Orion::hasManyResource('registros', 'users', RegistroUserController::class);
     Orion::hasOneResource('registros', 'antes', RegistroAntesController::class);
-    Orion::hasManyResource('registros', 'durante', RegistroUserController::class);
-    Orion::hasManyResource('registros', 'despues', RegistroUserController::class);
+    Orion::hasManyResource('registros', 'durante', RegistroDuranteController::class);
+    Orion::hasManyResource('registros', 'despues', RegistroDespuesController::class);
 });
 
 
