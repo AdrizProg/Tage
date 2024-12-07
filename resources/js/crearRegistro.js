@@ -5,7 +5,7 @@ const token = sessionStorage.getItem('apiToken');
 function obtenerDatosRegistro() {
     const compostera = 1;
 
-    array = [{ iniCliclo: 0, compostera: compostera, user_id: 1}];
+    array = [{ iniCiclo: 0, compostera: compostera, user_id: 1}];
 }
 
 export default async function newRegistro() {
@@ -29,6 +29,6 @@ export default async function newRegistro() {
       const result = await response.json();
       console.log('Respuesta del servidor:', result);
     } catch (error) {
-      console.error('Error al subir los datos:' + error);
+      // console.error('Error al subir los datos:' + error);
     }
   }

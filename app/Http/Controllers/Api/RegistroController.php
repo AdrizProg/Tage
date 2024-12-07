@@ -15,7 +15,7 @@ class RegistroController extends Controller
     {
         // Validar los datos de entrada
         $validatedData = $request->validate([
-            'iniCliclo' => 'integer',
+            'iniCiclo' => 'integer',
             'compostera' => 'integer',
             'user_id' => 'integer',
         ]);

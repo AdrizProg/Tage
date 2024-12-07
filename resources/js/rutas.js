@@ -28,7 +28,6 @@ export default function rutasUrl() {
 
             uploadDurante();
 
-            location.replace('http://tage.test/registro#despues');
         });
 
     } else if (hash.includes('/registro#despues')) {
@@ -40,7 +39,6 @@ export default function rutasUrl() {
 
             uploadDespues();
 
-            location.replace('http://tage.test/dashboard');
         });
 
     } else if (hash.includes('/registro') || hash.includes('/registro#antes')) {

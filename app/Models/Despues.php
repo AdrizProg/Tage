@@ -9,7 +9,7 @@ class Despues extends Model
 {
     protected $fillable = [
         'registro_id',
-        'nivelLLenado',
+        'nivelLlenado',
         'fotoFinal',
         'observaciones',
     ];

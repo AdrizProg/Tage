@@ -24,7 +24,7 @@ class DespuesController extends Controller
         // Validar los datos de entrada
         $validatedData = $request->validate([
             'registro_id' => 'required|integer', // Campo requerido y debe ser un número entero
-            'nivelLLenado' => 'nullable|numeric', // Campo opcional, debe ser numérico
+            'nivelLlenado' => 'nullable|numeric', // Campo opcional, debe ser numérico
             'fotoFinal' => 'nullable|image|max:2048',
             'observaciones' => 'nullable|string|max:255',
         ]);

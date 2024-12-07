@@ -19,42 +19,42 @@ function obtenerDatosAntes(idReg) {
     const textInsectos = document.getElementById('textInsectos').value;
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else if (insectos == 'Otro' && humedad == 'Otro') {
     const textInsectos = document.getElementById('textInsectos').value;
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else if (olor == 'Otro' && humedad == 'Otro') {
     const textOlor = document.getElementById('textOlor').value;
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else if (olor == 'Otro' && insectos == 'Otro') {
     const textOlor = document.getElementById('textOlor').value;
     const textInsectos = document.getElementById('textInsectos').value;
 
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   } else if (olor == 'Otro') {
     const textOlor = document.getElementById('textOlor').value;
 
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: textOlor, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   } else if (insectos == 'Otro') {
     const textInsectos = document.getElementById('textInsectos').value;
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: textInsectos, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   } else if (humedad == 'Otro') {
     const textHumedad = document.getElementById('textHumedad').value;
 
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: textHumedad, foto: null, observaciones: observaciones }];
 
   } else {
-    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLLenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
+    array = [{ registro_id: idReg, tempAmbiente: tempAmb, tempCompostera: tempComp, nivelLlenado: nivLLeno, olor: olor, otroOlor: null, insectos: insectos, otroInsecto: null, humedad: humedad, otroHumedad: null, foto: null, observaciones: observaciones }];
 
   }
 }
