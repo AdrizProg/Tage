@@ -17,7 +17,7 @@ class registroFactory extends Factory
      */
 
     protected $fillable = [
-        // 'iniCiclo',
+        'iniCiclo',
         'compostera',
         'user_id',
     ];
@@ -25,7 +25,7 @@ class registroFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'iniCiclo' => '1',
+            'iniCiclo' => '1',
             'compostera' => fake()->numberBetween(1, 3),
             'user_id' => '1',
         ];

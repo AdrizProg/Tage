@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
-            $table->boolean('iniCliclo')->nullable();
+            $table->boolean('iniCiclo')->nullable();
             $table->unsignedBigInteger('compostera');
             $table->foreign('compostera')->references('id')->on('composteras')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');

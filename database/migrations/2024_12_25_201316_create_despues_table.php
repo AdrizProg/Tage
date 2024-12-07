@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('registro_id');
             $table->foreign('registro_id')->references('id')->on('registros')->onDelete('cascade');
-            $table->tinyInteger('nivelLLenado')->nullable();
+            $table->tinyInteger('nivelLlenado')->nullable();
             $table->string('fotoFinal')->nullable();
             $table->string('observaciones')->nullable();
             $table->timestamps();
