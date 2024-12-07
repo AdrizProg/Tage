@@ -10,4 +10,8 @@
     <x-nav-link :href="route('registros')" :active="request()->routeIs('registros')">
         {{ __('Registros') }}
     </x-nav-link>
+
+    <x-nav-link href="users" :active="request()->routeIs('users')">
+        {{ __('CRUD') }}
+    </x-nav-link>
 </nav>
