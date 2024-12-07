@@ -15,7 +15,7 @@
                     {{ $compostera->nombre }}
                 </h2>
             </div>
-            <img alt="A placeholder image of 400x400 pixels with a gray background and white text in the center" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/xno9T45D0GI8Jl9ryOq578L6TUkdReN4IKWVsmzeQedjTvsnA.jpg" width="400" />
+            <img alt="A placeholder image of 400x400 pixels with a gray background and white text in the center" class="w-full h-48 object-cover" height="400" src="{{ asset('images/compostera.webp') }}" width="400" />
             <div class="p-4">
                 <span class="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">
                     {{ $compostera->tipo }}
