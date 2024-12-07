@@ -21,7 +21,7 @@
 </head>
 
 <body class="bg-blue-100">
-    @isset($header) <header class="bg-green-600 p-4 flex items-center justify-between">
+    <header class="bg-green-600 p-4 flex items-center justify-between">
         <img alt="Logo" src="favicon.ico" class="w-15 h-20" />
 
         @include('layouts.navigation')
@@ -38,11 +38,9 @@
                 <img alt="User Avatar" class="h-8 w-8 rounded-full" height="30" src="https://storage.googleapis.com/a1aa/image/92L9rHMMkS6tBZKeenI7EMYCL76beZg8KvkikxNlv9IQREunA.jpg" width="30" />
             </x-dropdown-link>
         </div>
-    </header> @endisset
+    </header>
 
     <main class="py-10 px-10"> {{ $slot }} </main>
 
     <footer></footer>
 </body>
-
-</html>

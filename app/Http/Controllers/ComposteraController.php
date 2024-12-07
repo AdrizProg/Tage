@@ -61,6 +61,7 @@ class ComposteraController extends Controller
 
     public function mostrarRegistro()
     {
-        return view('auth/registro');
+        $composteras = Compostera::all();
+        return view('auth/registro', compact('composteras'));
     }
 }
