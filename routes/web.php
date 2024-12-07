@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ComposteraController;
+use App\Http\Controllers\Api\RegistroController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,10 @@ Route::get('nuevaCompostera', [ComposteraController::class, 'create'])
 
 Route::get('registro', [ComposteraController::class, 'mostrarRegistro'])
     ->name('registro')
+    ->middleware(['verified', 'auth:sanctum']);
+
+Route::get('registros', [RegistroController::class, 'mostrarRegistros'])
+    ->name('registros')
     ->middleware(['verified', 'auth:sanctum']);
 
 Route::resource('/users', UserController::class)

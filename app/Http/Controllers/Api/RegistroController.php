@@ -35,4 +35,10 @@ class RegistroController extends Controller
 
         return view('registro');
     }
+
+    public function mostrarRegistros()
+    {
+        $registros = Registro::all();
+        return view('auth/registros', compact('registros'));
+    }
 }
