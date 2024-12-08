@@ -1,10 +1,11 @@
-const composteras = document.getElementById('aqui');
+
 
 let array = []; // Array para almacenar los datos
 const url = 'http://tage.test/api/composteras';
 const token = sessionStorage.getItem('apiToken');
 
 export default async function composterasMostrar() { // Nombre más descriptivo
+    const composteras = document.getElementById('seleccionarCompostera');
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -21,12 +22,10 @@ export default async function composterasMostrar() { // Nombre más descriptivo
         const data = await response.json();
         array = Array.isArray(data) ? data : [data]; // Asegúrate de que siempre sea un array
 
-        array.map(e => {
-            // console.log(e.nombre)
-            composteras.innerHTML = `
-                <option> ${e.nombre} </option>
-    `;
-        })
+        const opciones = array.map(e => ` <option> ${e.nombre} </option> `)
+
+        composteras.innerHTML += opciones;
+
         console.log('Datos cargados en el array:', array);
         return array; // Devuelve los datos para que puedan ser usados directamente
     } catch (error) {

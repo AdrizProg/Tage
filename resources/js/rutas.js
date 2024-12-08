@@ -5,6 +5,7 @@ import uploadDurante from './subirDurante';
 import uploadDespues from './subirDespues';
 import hola from './registroAntes';
 import idRegistro from './selectIdRegistro';
+import composterasMostrar from './registroComposteras';
 
 let currentHash = "";
 
@@ -45,12 +46,7 @@ export default function rutasUrl() {
 
         mostrarRegistros(1);
 
-        // setTimeout(() => {
-        //     composterasMostrar();
-        // }, 2000);
-
-        // const boton = document.getElementById('boton');
-        // boton.addEventListener('click', () => {
+        composterasMostrar();
 
         const olorMostrar = document.getElementById('olor');
         olorMostrar.addEventListener('change', hola);
@@ -64,15 +60,9 @@ export default function rutasUrl() {
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
-            // localStorage.setItem(1, true)
-
-            // idRegistro();
-
             uploadAntes();
 
-            // location.replace('http://tage.test/registro#durante');
         });
-        // });
 
     } else if (hash.includes('/dashboard')) {
         dashboardView();
