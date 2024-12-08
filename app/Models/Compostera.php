@@ -12,7 +12,8 @@ class Compostera extends Model
 
     protected $fillable = [
         'nombre',
-        'centro'
+        'tipo',
+        'centro',
     ];
 
     public function compostera()

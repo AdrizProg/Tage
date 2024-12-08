@@ -1,3 +1,5 @@
+import composterasMostrar from './registroComposteras';
+
 export default function mostrarRegistros(e) {
     const Form = document.getElementById('formularios');
 
@@ -31,9 +33,7 @@ export default function mostrarRegistros(e) {
 
                     <select id="seleccionarCompostera" name="seleccionarCompostera" class="w-full p-2 border rounded" required>
 
-                        <option>
-                            compostera nombre
-                        </option>
+                        <div id="aqui"> </div>
 
                     </select>
                 </div>
@@ -131,7 +131,11 @@ export default function mostrarRegistros(e) {
                     Cancelar registro
                 </button>
             </div>
-        `
+        `;
+
+        console.log(document.getElementById('aqui'))
+
+        composterasMostrar();
     } else if (e == 2) {
         Form.innerHTML = `
         <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
@@ -235,7 +239,7 @@ export default function mostrarRegistros(e) {
                     Cancelar registro
                 </button>
             </div>
-        `
+        `;
     } else if (e == 3) {
         Form.innerHTML = `
     <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">

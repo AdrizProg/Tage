@@ -45,6 +45,10 @@ export default function rutasUrl() {
 
         mostrarRegistros(1);
 
+        // setTimeout(() => {
+        //     composterasMostrar();
+        // }, 2000);
+
         // const boton = document.getElementById('boton');
         // boton.addEventListener('click', () => {
 
