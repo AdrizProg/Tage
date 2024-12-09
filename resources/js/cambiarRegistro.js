@@ -26,15 +26,6 @@ export default function mostrarRegistros(e) {
             </nav>
 
             <form class="w-full max-w-lg">
-                <div class="mb-4">
-                    <label class="block mb-2" for="compostera">
-                        Elige tu compostera
-                    </label>
-
-                    <select id="seleccionarCompostera" name="seleccionarCompostera" class="w-full p-2 border rounded" required>
-
-                    </select>
-                </div>
 
                 <div class="flex space-x-4 mb-4">
                     <div class="w-1/2">
@@ -130,11 +121,6 @@ export default function mostrarRegistros(e) {
                 </button>
             </div>
         `;
-
-        // console.log(document.getElementById('seleccionarCompostera'))
-
-        // composterasMostrar();
-        // console.log(hola)
     } else if (e == 2) {
         Form.innerHTML = `
         <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
@@ -298,32 +284,3 @@ export default function mostrarRegistros(e) {
     `;
     }
 }
-
-// async function composterasMostrar() { // Nombre más descriptivo
-//     try {
-//         const response = await fetch(url, {
-//             method: 'GET',
-//             headers: {
-//                 'Authorization': `Bearer ${token}`,
-//                 'Content-Type': 'application/json',
-//             },
-//         });
-
-//         if (!response.ok) {
-//             throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
-//         }
-
-//         const data = await response.json();
-//         array = Array.isArray(data) ? data : [data]; // Asegúrate de que siempre sea un array
-
-//         const opciones = array.map(e => ` <option> ${e.nombre} </option> `)
-
-//         composteras.innerHTML += opciones;
-
-//         console.log('Datos cargados en el array:', array);
-//         return array; // Devuelve los datos para que puedan ser usados directamente
-//     } catch (error) {
-//         console.error('Error al obtener los datos:', error.message);
-//         return []; // Devuelve un array vacío si hay un error
-//     }
-// }

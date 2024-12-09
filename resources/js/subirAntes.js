@@ -14,6 +14,9 @@ function obtenerDatosAntes(idReg) {
   const humedad = document.getElementById('humedad').value;
   const observaciones = document.getElementById('observacionesAntes').value;
 
+  // const idComp = document.querySelector('#seleccionarCompostera option:checked').id;
+  // console.log(idComp);
+
   if (olor == 'Otro' && insectos == 'Otro' && humedad == 'Otro') {
     const textOlor = document.getElementById('textOlor').value;
     const textInsectos = document.getElementById('textInsectos').value;
