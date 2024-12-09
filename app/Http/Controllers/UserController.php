@@ -67,9 +67,10 @@ class UserController extends Controller
      */
     public function edit($id): View
     {
+        $centros = Centro::all();
         $user = User::find($id);
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user', 'centros'));
     }
 
     /**
