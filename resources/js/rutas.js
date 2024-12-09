@@ -5,7 +5,7 @@ import uploadDurante from './subirDurante';
 import uploadDespues from './subirDespues';
 import hola from './registroAntes';
 import idRegistro from './selectIdRegistro';
-import composterasMostrar from './registroComposteras';
+// import composterasMostrar from './registroComposteras';
 
 let currentHash = "";
 
@@ -46,7 +46,7 @@ export default function rutasUrl() {
 
         mostrarRegistros(1);
 
-        composterasMostrar();
+        // composterasMostrar();
 
         const olorMostrar = document.getElementById('olor');
         olorMostrar.addEventListener('change', hola);
