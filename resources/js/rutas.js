@@ -77,7 +77,25 @@ export default function rutasUrl() {
         });
 
     } else if (hash.includes('/dashboard')) {
-        dashboardView();
+        if (localStorage.getItem('antes1') && localStorage.getItem('durante1') && localStorage.getItem('despues1')) {
+
+            localStorage.removeItem('antes1');
+            localStorage.removeItem('durante1');
+            localStorage.removeItem('despues1');
+
+        } else if (localStorage.getItem('antes2') && localStorage.getItem('durante2') && localStorage.getItem('despues2')) {
+
+            localStorage.removeItem('antes2');
+            localStorage.removeItem('durante2');
+            localStorage.removeItem('despues2');
+
+        } else if (localStorage.getItem('antes3') && localStorage.getItem('durante3') && localStorage.getItem('despues3')) {
+
+            localStorage.removeItem('antes3');
+            localStorage.removeItem('durante3');
+            localStorage.removeItem('despues3');
+
+        }
     }
 }
 

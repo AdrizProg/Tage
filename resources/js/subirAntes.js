@@ -66,6 +66,8 @@ export default async function uploadAntes() {
   newRegistro();
   const id = await idRegistro();
   obtenerDatosAntes(id);
+  const idComp = window.location.href.slice(-1);
+
   try {
     const response = await fetch(urlAntes, {
       method: 'POST', // Usamos POST para enviar datos
@@ -75,12 +77,7 @@ export default async function uploadAntes() {
       },
       body: JSON.stringify(array[0]), // Convertimos el array en JSON para enviarlo
     });
-    console.log(response)
-    // if (!response.ok) {
-    //   const errorData = await response.json();
-    //   console.error('Errores devueltos por el servidor:', errorData);
-    //   throw new Error(`HTTP error! Status: ${response.status}`);
-    // }
+    localStorage.setItem('antes' + idComp, JSON.stringify(array[0]));
 
     const result = await response.json();
     console.log(idMasReciente)
@@ -89,7 +86,7 @@ export default async function uploadAntes() {
     console.error('Error al subir los datos:', error);
   }
 
-  location.replace('http://tage.test/registro#durante');
+  location.replace('/registro#durante' + idComp);
 }
 
 

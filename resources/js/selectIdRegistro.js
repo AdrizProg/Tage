@@ -1,37 +1,39 @@
 const url = 'http://tage.test/api/registros';
 const token = sessionStorage.getItem('apiToken');
 
-export default async function idRegistro() { // Cambiamos el nombre de la función para evitar conflictos
+export default async function idRegistro() {
   try {
-    const response = await fetch(url, { // Usamos la función global fetch
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    });
+    let allRegistros = [];
+    let currentPage = 1;
+    let totalPages = 1;
 
-    const datos = await response.json(); // Convertir a JSON
-    console.log('Datos recibidos:', datos); // Verificar qué estructura tiene la API
+    do {
+      const response = await fetch(`${url}?page=${currentPage}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
 
-    // Asegúrate de que "datos" sea un array
-    const registros = Array.isArray(datos) ? datos : datos.data || [];
+      const datos = await response.json();
+      console.log(`Datos de la página ${currentPage}:`, datos);
 
-    if (registros.length === 0) {
-      console.log('No hay registros disponibles.');
-      return null;
-    }
+      const registros = datos.data || [];
+      allRegistros = allRegistros.concat(registros);
 
-    // Ordenar por fecha (descendente) y tomar el primero
-    const registroMasReciente = registros.sort((a, b) => 
-      new Date(b.created_at) - new Date(a.created_at)
-    )[0];
+      // Actualiza las variables de paginación
+      totalPages = datos.meta?.last_page || 1;
+      currentPage++;
+    } while (currentPage <= totalPages);
 
-    // Obtener el ID del registro más reciente
-    const idMasReciente = registroMasReciente?.id;
+    // Encuentra el registro con el ID más grande
+    const registroIdMasGrande = allRegistros.reduce((max, registro) =>
+      registro.id > max.id ? registro : max, allRegistros[0]
+    );
 
-    console.log('ID del registro más reciente:', idMasReciente);
-    return idMasReciente;
+    console.log('ID más grande:', registroIdMasGrande?.id);
+    return registroIdMasGrande?.id;
   } catch (error) {
     console.log(`Error en la promesa: ${error}`);
   }

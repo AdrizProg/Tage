@@ -14,6 +14,8 @@ function obtenerDatosDespues(idReg) {
 export default async function uploadDespues() {
   const id = await idRegistro();
   obtenerDatosDespues(id);
+
+  const idComp = window.location.href.slice(-1);
   try {
     const response = await fetch(urlDespues, {
       method: 'POST', // Usamos POST para enviar datos
@@ -23,12 +25,8 @@ export default async function uploadDespues() {
       },
       body: JSON.stringify(array[0]), // Convertimos el array en JSON para enviarlo
     });
-    console.log(response)
-    // if (!response.ok) {
-    //   const errorData = await response.json();
-    //   console.error('Errores devueltos por el servidor:', errorData);
-    //   throw new Error(`HTTP error! Status: ${response.status}`);
-    // }
+
+    localStorage.setItem('despues' + idComp, JSON.stringify(array[0]));
 
     const result = await response.json();
     console.log('Respuesta del servidor:', result);
@@ -36,6 +34,5 @@ export default async function uploadDespues() {
     console.error('Error al subir los datos:' + error);
   }
 
-  location.replace('http://tage.test/dashboard');
-
+  location.replace('/dashboard');
 }
