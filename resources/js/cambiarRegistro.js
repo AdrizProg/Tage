@@ -5,7 +5,7 @@ export default function mostrarRegistros(e) {
 
     if (e == 1) {
         Form.innerHTML = `
-        <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
+            <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
                 <a href="#antes">
                     <button class="bg-blue-600 text-white px-4 py-2 rounded">
                         Antes
@@ -26,7 +26,6 @@ export default function mostrarRegistros(e) {
             </nav>
 
             <form class="w-full max-w-lg">
-
                 <div class="flex space-x-4 mb-4">
                     <div class="w-1/2">
                         <label class="block mb-2" for="ambiente">
@@ -123,7 +122,7 @@ export default function mostrarRegistros(e) {
         `;
     } else if (e == 2) {
         Form.innerHTML = `
-        <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
+            <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
                 <a href="#antes">
                     <button class="bg-gray-200 text-black px-4 py-2 rounded">
                         Antes
@@ -181,7 +180,6 @@ export default function mostrarRegistros(e) {
                         </label>
 
                         <input id="tipoAporteVerde" type="text" placeholder="Palmera" class="w-full p-2 border rounded" />
-
                     </div>
 
                     <div class="w-1/3">
@@ -196,7 +194,6 @@ export default function mostrarRegistros(e) {
                         </label>
 
                         <input id="tipoAporteSeco" type="text" placeholder="Palmera" class="w-full p-2 border rounded" />
-
                     </div>
                 </div>
 
@@ -227,46 +224,45 @@ export default function mostrarRegistros(e) {
         `;
     } else if (e == 3) {
         Form.innerHTML = `
-    <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
-            <a href="#antes">
-                <button class="bg-gray-200 text-black px-4 py-2 rounded">
-                    Antes
-                </button>
-            </a>
+            <nav id="navbar-sticky" class="flex justify-between mb-4 bg-gray-200 p-2 rounded">
+                <a href="#antes">
+                    <button class="bg-gray-200 text-black px-4 py-2 rounded">
+                        Antes
+                    </button>
+                </a>
 
-            <a href="#durante">
-                <button class="bg-gray-200 text-black px-4 py-2 rounded">
-                    Durante
-                </button>
-            </a>
+                <a href="#durante">
+                    <button class="bg-gray-200 text-black px-4 py-2 rounded">
+                        Durante
+                    </button>
+                </a>
 
-            <a href="#despues">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded">
-                    Después
-                </button>
-            </a>
-        </nav>
+                <a href="#despues">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded">
+                        Después
+                    </button>
+                </a>
+            </nav>
 
-        <form class="w-full max-w-lg">
+            <form class="w-full max-w-lg">
+                <div class="mb-4">
+                    <label class="block mb-2" for="nivel">
+                        Nivel llenado
+                    </label>
 
-            <div class="mb-4">
-                <label class="block mb-2" for="nivel">
-                    Nivel llenado
-                </label>
+                    <input id="nivelLlenado" type="range" class="w-full" />
+                </div>
 
-                <input id="nivelLlenado" type="range" class="w-full" />
-            </div>
+                <div class="mb-4">
+                    <label class="block mb-2" for="observaciones">
+                        Observaciones
+                    </label>
 
-            <div class="mb-4">
-                <label class="block mb-2" for="observaciones">
-                    Observaciones
-                </label>
+                    <input id="observacionesDespues" type="text" placeholder="Observaciones" class="w-full p-2 border rounded" />
+                </div>
+            </form>
 
-                <input id="observacionesDespues" type="text" placeholder="Observaciones" class="w-full p-2 border rounded" />
-            </div>
-        </form>
-
-        <div class="flex space-x-4 mb-4">
+            <div class="flex space-x-4 mb-4">
                 <button id="btnAnterior" class="bg-green-600 text-white w-full py-2 rounded">
                     Anterior
                 </button>
