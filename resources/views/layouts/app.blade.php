@@ -22,7 +22,7 @@
 
 <body class="bg-blue-100">
     <header class="bg-green-600 p-4 flex items-center justify-between">
-        <img alt="Logo" src="favicon.ico" class="w-15 h-20" />
+        <img alt="Logo" src="{{ asset('favicon.ico') }}" class="w-15 h-20" />
 
         @include('layouts.navigation')
 

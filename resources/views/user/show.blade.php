@@ -1,50 +1,52 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $user->name ?? __('Show') . " " . __('User') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-full mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="w-full">
-                    <div class="sm:flex sm:items-center">
-                        <div class="sm:flex-auto">
-                            <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Show') }} User</h1>
-                            <p class="mt-2 text-sm text-gray-700">Details of {{ __('User') }}.</p>
-                        </div>
-                        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                            <a type="button" href="{{ route('users.index') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back</a>
-                        </div>
+    <card class="flex justify-center items-center">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl">
+            <div class="flex items-center space-x-4 mb-8">
+                <img alt="User Avatar" class="h-8 w-8 rounded-full" height="30" src="https://storage.googleapis.com/a1aa/image/92L9rHMMkS6tBZKeenI7EMYCL76beZg8KvkikxNlv9IQREunA.jpg" width="30" />
+                <h2 class="text-2xl font-semibold">
+                    {{ $user->name }}
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex justify-between">
+                    <div class="font-semibold">
+                        Correo:
                     </div>
-
-                    <div class="flow-root">
-                        <div class="mt-8 overflow-x-auto">
-                            <div class="inline-block min-w-full py-2 align-middle">
-                                <div class="mt-6 border-t border-gray-100">
-                                    <dl class="divide-y divide-gray-100">
-                                        
-                                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt class="text-sm font-medium leading-6 text-gray-900">Name</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ $user->name }}</dd>
-                                </div>
-                                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt class="text-sm font-medium leading-6 text-gray-900">Email</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ $user->email }}</dd>
-                                </div>
-                                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt class="text-sm font-medium leading-6 text-gray-900">Centro</dt>
-                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ $user->centro }}</dd>
-                                </div>
-
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                        {{ $user->email }}
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="font-semibold">
+                        Centro
+                    </div>
+                    <div>
+                        {{ $user->centro_id }}
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="font-semibold">
+                        Administrador
+                    </div>
+                    <div>
+                        {{ $user->admin }}
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="font-semibold">
+                        Creado
+                    </div>
+                    <div>
+                        {{ $user->created_at }}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </card>
+
+    <a type="button" href="{{ route('users.index') }}">
+        <button class="block rounded-md bg-green-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            {{ __('Volver') }}
+        </button>
+    </a>
 </x-app-layout>

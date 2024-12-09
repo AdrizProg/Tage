@@ -30,7 +30,6 @@ class UserController extends Controller
     public function create(): View
     {
         $user = new User();
-
         $centros = Centro::all();
 
         return view('user.create', compact('user'), compact('centros'));
