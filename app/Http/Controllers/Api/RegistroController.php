@@ -31,14 +31,12 @@ class RegistroController extends Controller
 
     public function mostrarAntes()
     {
-        $nuevoAntes = new Antes();
-
         return view('registro');
     }
 
     public function mostrarRegistros()
     {
         $registros = Registro::all();
-        return view('auth/registros', compact('registros'));
+        return view('registros.registro', compact('registros'));
     }
 }
