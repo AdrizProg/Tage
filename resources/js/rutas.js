@@ -25,6 +25,9 @@ export default function rutasUrl() {
 
         fetchDataAntes();
 
+        const boton = document.getElementById('createreg');
+        boton.addEventListener('click', location.replace('http://tage.test/registro#antes'));
+
     }else if (hash.includes('/registro#durante')) {
 
         mostrarRegistros(2);

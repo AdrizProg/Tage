@@ -5,10 +5,7 @@
 
     <div id="chart"></div>
 
-
-    <a href="registro">
-        <x-primary-button>
+        <x-primary-button id="createreg">
             Haz un registro
         </x-primary-button>
-    </a>
 </x-app-layout>
