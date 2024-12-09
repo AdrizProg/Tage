@@ -1,5 +1,5 @@
 <nav class="flex items-center space-x-4">
-    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard', 'estadisticas', 'registro')">
         {{ __('Composteras') }}
     </x-nav-link>
 
