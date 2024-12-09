@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('nuevaCompostera', [ComposteraController::class, 'create'])
-    ->middleware(['verified', 'auth:sanctum']);
+    ->middleware('can:administrate,App\Models\User');
 
 Route::get('registro', [ComposteraController::class, 'mostrarRegistro'])
     ->name('registro')

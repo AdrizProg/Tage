@@ -27,12 +27,15 @@
         @include('layouts.navigation')
 
         <div class="flex items-center space-x-4">
+
+            @can('administrate', Auth::user())
             <a href="nuevaCompostera">
                 <button class="flex items-center bg-white text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
                     <i class="fas fa-plus mr-1"></i>
                     Compostera
                 </button>
             </a>
+            @endcan
 
             <x-dropdown-link :href="route('profile.edit')">
                 <img alt="User Avatar" class="h-8 w-8 rounded-full" height="30" src="https://storage.googleapis.com/a1aa/image/92L9rHMMkS6tBZKeenI7EMYCL76beZg8KvkikxNlv9IQREunA.jpg" width="30" />
