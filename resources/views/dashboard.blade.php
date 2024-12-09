@@ -26,6 +26,8 @@
     </div>
 
     <script>
+        if (!sessionStorage.getItem('apiToken')) {
         sessionStorage.setItem('apiToken', @json(session('token')))
+        }
     </script>
 </x-app-layout>
