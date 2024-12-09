@@ -7,7 +7,11 @@
         {{ __('Registros') }}
     </x-nav-link>
 
-    <x-nav-link href="users" :active="request()->routeIs('users')">
-        {{ __('CRUD') }}
-    </x-nav-link>
+    @can('administrate', Auth::user())
+    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+            {{ __('Usuarios') }}
+        </x-nav-link>
+    </div>
+    @endcan
 </nav>

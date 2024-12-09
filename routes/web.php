@@ -31,6 +31,6 @@ Route::get('registros', [RegistroController::class, 'mostrarRegistros'])
     ->middleware(['verified', 'auth:sanctum']);
 
 Route::resource('users', UserController::class)
-    ->middleware(['verified', 'auth:sanctum']);
+    ->middleware('can:administrate,App\Models\User');
 
 require __DIR__ . '/auth.php';

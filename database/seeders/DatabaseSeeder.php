@@ -21,15 +21,28 @@ class DatabaseSeeder extends Seeder
     {
         Centro::factory(50)->create();
 
-        User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('admin123'),
-            'remember_token' => Str::random(10),
-            'centro_id' => 1,
-            // 'role' => 'admin',
-        ]);
+        User::factory()->create(
+            [
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('admin123'),
+                'remember_token' => Str::random(10),
+                'centro_id' => 1,
+                'admin' => true,
+            ]
+        );
+
+        User::factory()->create(
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('user123'),
+                'remember_token' => Str::random(10),
+                'centro_id' => 1,
+            ]
+        );
 
         Compostera::factory(3)->create();
         Registro::factory(10)->create();
