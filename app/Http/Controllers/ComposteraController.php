@@ -43,6 +43,11 @@ class ComposteraController extends Controller
         //
     }
 
+    public function mostrarEstadisticas()
+    {
+        return view('auth/estadisticas');
+    }
+
     /**
      * Update the specified resource in storage.
      */

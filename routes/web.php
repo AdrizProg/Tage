@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\ComposterasController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -21,6 +22,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('nuevaCompostera', [ComposteraController::class, 'create'])
     ->middleware('can:administrate,App\Models\User');
+
+Route::get('estadisticas', [ComposteraController::class, 'mostrarEstadisticas'])
+    ->name('estadisticas')
+    ->middleware(['verified', 'auth:sanctum']);
 
 Route::get('registro', [ComposteraController::class, 'mostrarRegistro'])
     ->name('registro')
