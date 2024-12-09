@@ -6,6 +6,7 @@ import uploadDespues from './subirDespues';
 import hola from './registroAntes';
 import idRegistro from './selectIdRegistro';
 // import composterasMostrar from './registroComposteras';
+import fetchDataAntes from './graficas';
 
 let currentHash = "";
 
@@ -20,7 +21,11 @@ export default function rutasUrl() {
 
     if (hash.includes('/composteras')) {
 
-    } else if (hash.includes('/registro#durante')) {
+    } else if (hash.includes('/estadisticas')) {
+
+        fetchDataAntes();
+
+    }else if (hash.includes('/registro#durante')) {
 
         mostrarRegistros(2);
 

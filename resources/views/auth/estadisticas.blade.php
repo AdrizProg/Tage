@@ -3,6 +3,9 @@
         Estadisticas aquí
     </div>
 
+    <div id="chart"></div>
+
+
     <a href="registro">
         <x-primary-button>
             Haz un registro

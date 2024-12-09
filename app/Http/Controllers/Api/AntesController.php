@@ -13,7 +13,14 @@ class AntesController extends Controller
      */
     public function index()
     {
-        // return response()->json($response, 200);
+        // Recupera todos los registros de la tabla 'antes'
+        $registros = Antes::all();
+    
+        // Retorna los registros como una respuesta JSON con estado HTTP 200
+        return response()->json([
+            'success' => true,
+            'data' => $registros
+        ], 200);
     }
 
     /**
