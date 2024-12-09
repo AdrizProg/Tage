@@ -4,12 +4,21 @@ let array = [];
 const urlAntes = 'http://tage.test/api/antes';
 const token = sessionStorage.getItem('apiToken');
 
-function viewGraficas(valores) {
+const url = 'http://tage.test/api/registros';
 
-    let valoresArray = valores.data;
-    const arrayTempAmb = valoresArray.map(e => e.tempAmbiente);
-    const arrayFechaInsercion = valoresArray.map(e => e.created_at.slice(0,10));
+function viewGraficas(valores, compReg) {
+
     const idCompostera = window.location.href.slice(-1);
+    let valoresArray = valores.data;
+
+    let idWithCompostera = compReg.map(e => {
+        return e.compostera == idCompostera ? e.id : null;
+    }).filter(id => id != null);
+
+    let filtroId = valoresArray.filter(e => idWithCompostera.includes(e.registro_id))
+
+    const arrayTempAmb = filtroId.map(e => e.tempAmbiente);
+    const arrayFechaInsercion = filtroId.map(e => e.created_at.slice(0,10));
 
   var options = {
     series: [{
@@ -49,6 +58,7 @@ function viewGraficas(valores) {
 };
 
 export default async function fetchDataAntes() {
+    const comp = await regComposte();
   try {
     const response = await fetch(urlAntes, {
       method: 'GET',
@@ -82,9 +92,43 @@ export default async function fetchDataAntes() {
     // Actualizamos el array con la información obtenida
     array = result;
 
-    viewGraficas(array);
+    viewGraficas(array, comp);
   } catch (error) {
     console.error('Error al obtener los datos:', error);
     throw error; // Propagamos el error para manejarlo en otro lugar si es necesario
   }
 }
+
+async function regComposte() { // Cambiamos el nombre de la función para mayor claridad
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      const datos = await response.json(); // Convertir a JSON
+      console.log('Datos recibidos:', datos); // Verificar qué estructura tiene la API
+  
+      // Asegúrate de que "datos" sea un array
+      const registros = Array.isArray(datos) ? datos : datos.data || [];
+  
+      if (registros.length === 0) {
+        console.log('No hay registros disponibles.');
+        return [];
+      }
+  
+      // Ordenar por fecha (descendente), si es necesario
+      const registrosOrdenados = registros.sort((a, b) =>
+        new Date(b.created_at) - new Date(a.created_at)
+      );
+  
+      console.log('Registros ordenados:', registrosOrdenados);
+      return registrosOrdenados; // Devolver el arreglo completo
+    } catch (error) {
+      console.log(`Error en la promesa: ${error}`);
+      return []; // Devolver un arreglo vacío en caso de error
+    }
+  }

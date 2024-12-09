@@ -3,7 +3,7 @@ const urlRegistros = 'http://tage.test/api/registros';
 const token = sessionStorage.getItem('apiToken');
 
 function obtenerDatosRegistro() {
-    const compostera = 1;
+    const compostera = window.location.href.slice(-1);
 
     array = [{ iniCiclo: 0, compostera: compostera, user_id: 1}];
 }
