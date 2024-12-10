@@ -5,8 +5,11 @@ const token = sessionStorage.getItem('apiToken');
 function obtenerDatosRegistro() {
     const compostera = window.location.href.slice(-1);
     localStorage.setItem('compostera', compostera)
+    const idUser = sessionStorage.getItem('idUser');
 
-    array = [{ iniCiclo: 0, compostera: compostera, user_id: 1}];
+    console.log(idUser);
+
+    array = [{ iniCiclo: 0, compostera: compostera, user_id: idUser}];
 }
 
 export default async function newRegistro() {
