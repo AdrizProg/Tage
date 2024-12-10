@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\api\ComposterasController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ComposteraController;
 use App\Http\Controllers\Api\RegistroController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,5 +37,11 @@ Route::get('registros', [RegistroController::class, 'mostrarRegistros'])
 
 Route::resource('users', UserController::class)
     ->middleware('can:administrate,App\Models\User');
+
+Route::get('register', [RegisteredUserController::class, 'create'])
+    ->name('register')
+    ->middleware('can:administrate,App\Models\User');
+
+Route::post('register', [RegisteredUserController::class, 'store']);
 
 require __DIR__ . '/auth.php';

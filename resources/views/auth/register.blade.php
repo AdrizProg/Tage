@@ -21,9 +21,9 @@
 
                 <!-- Centros -->
                 <div class="mb-4 text-left">
-                    <x-input-label for="centro" :value="__('Centro')" />
+                    <x-input-label for="centro_id" :value="__('Centro')" />
 
-                    <x-select id="centro" name="centro" required>
+                    <x-select id="centro" name="centro_id" required>
 
                         @foreach ($centros as $centro)
                         <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
@@ -58,24 +58,6 @@
 
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
-
-                <!-- Ya existe -->
-                <div class="flex items-center justify-end mt-4">
-
-                </div>
-
-                <div class="flex items-center justify-between mb-6">
-                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                        {{ __('Already registered?') }}
-                    </a>
-
-                    @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="text-green-500 hover:underline">
-                        {{ __('¿Olvidaste tu contraseña?') }}
-                    </a>
-                    @endif
-                </div>
-
 
                 <!-- Botón -->
                 <x-primary-button>
