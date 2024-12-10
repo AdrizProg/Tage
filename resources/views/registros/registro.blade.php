@@ -36,12 +36,6 @@
                         <span class="text-sm font-medium text-gray-700">Creado:</span>
                         <span class="text-sm text-gray-900">{{$registro->created_at}}</span>
                     </div>
-
-                    <!-- Actualización -->
-                    <div class="flex justify-between">
-                        <span class="text-sm font-medium text-gray-700">Actualizado:</span>
-                        <span class="text-sm text-gray-900">{{$registro->updated_at}}</span>
-                    </div>
                 </div>
             </div>
         </a>

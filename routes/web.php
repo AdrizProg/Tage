@@ -33,7 +33,7 @@ Route::get('registro', [ComposteraController::class, 'mostrarRegistro'])
 
 Route::get('registros', [RegistroController::class, 'mostrarRegistros'])
     ->name('registros')
-    ->middleware('can:administrate,App\Models\User');
+    ->middleware(['verified', 'auth:sanctum']);
 
 Route::resource('users', UserController::class)
     ->middleware('can:administrate,App\Models\User');
