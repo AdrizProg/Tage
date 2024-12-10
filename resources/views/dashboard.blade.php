@@ -1,21 +1,30 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-        @if (session('token'))
-            <p>Token: {{ session('token') }}</p>
-        @endif
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-                <div id="app"></div>
+    <div id="contenedorComposteras" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        @foreach ($composteras as $compostera)
+        <a href="/estadisticas#compostera{{ $compostera->id }}" class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+            <div class="p-4 text-center">
+                <h2 class="text-xl font-bold mb-2">
+                    {{ $compostera->nombre }}
+                </h2>
             </div>
-        </div>
+            <img alt="Imagen compostera" class="w-full h-48 object-cover" height="400" src="{{ asset('images/compostera.webp') }}" width="400" />
+            <div class="p-4">
+                <span class="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">
+                    {{ $compostera->tipo }}
+                </span>
+            </div>
+        </a>
+        @endforeach
     </div>
+
+    {{$user->id}}
+    <script>
+        if (!sessionStorage.getItem('idUser')) {
+            sessionStorage.setItem('idUser', @json('$user->id'));
+        };
+
+        if (!sessionStorage.getItem('apiToken')) {
+            sessionStorage.setItem('apiToken', @json(session('token')));
+        };
+    </script>
 </x-app-layout>

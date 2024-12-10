@@ -6,14 +6,20 @@ use App\Models\Registro;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class RegistrosPolicy
+class RegistroPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
+
+    protected function includes(): array
+    {
+        return ['antesde', 'durante', 'despuesde', 'compostera', 'user'];
+    }
+
     public function viewAny(User $user): bool
     {
-        return True;
+        return true;
     }
 
     /**
@@ -21,7 +27,7 @@ class RegistrosPolicy
      */
     public function view(User $user, Registro $registro): bool
     {
-        return True;
+        return true;
     }
 
     /**
@@ -29,7 +35,7 @@ class RegistrosPolicy
      */
     public function create(User $user): bool
     {
-        return False;
+        return true;
     }
 
     /**
@@ -37,7 +43,7 @@ class RegistrosPolicy
      */
     public function update(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 
     /**
@@ -45,7 +51,7 @@ class RegistrosPolicy
      */
     public function delete(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 
     /**
@@ -53,7 +59,7 @@ class RegistrosPolicy
      */
     public function restore(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 
     /**
@@ -61,6 +67,6 @@ class RegistrosPolicy
      */
     public function forceDelete(User $user, Registro $registro): bool
     {
-        return False;
+        return false;
     }
 }

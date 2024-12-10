@@ -30,7 +30,6 @@ class UserController extends Controller
     public function create(): View
     {
         $user = new User();
-
         $centros = Centro::all();
 
         return view('user.create', compact('user'), compact('centros'));
@@ -67,9 +66,10 @@ class UserController extends Controller
      */
     public function edit($id): View
     {
+        $centros = Centro::all();
         $user = User::find($id);
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user', 'centros'));
     }
 
     /**
@@ -86,7 +86,6 @@ class UserController extends Controller
     public function destroy($id): RedirectResponse
     {
         User::find($id)->delete();
-
         return Redirect::route('users.index')
             ->with('success', 'User deleted successfully');
     }

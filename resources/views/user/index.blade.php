@@ -1,69 +1,60 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Users') }}
-        </h2>
-    </x-slot>
+    <div class="flex justify-center mt-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">
+            <a href="{{ route('users.create') }}" class="flex justify-end mb-4">
+                <button class="block rounded-md bg-green-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    {{ __('Nuevo usuario') }}
+                </button>
+            </a>
 
-    <div class="py-12">
-        <div class="max-w-full mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="w-full">
-                    <div class="sm:flex sm:items-center">
-                        <div class="sm:flex-auto">
-                            <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Users') }}</h1>
-                            <p class="mt-2 text-sm text-gray-700">A list of all the {{ __('Users') }}.</p>
-                        </div>
-                        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                            <a type="button" href="{{ route('users.create') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add new</a>
-                        </div>
-                    </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="py-2 px-4 border-b">
+                                Nombre
+                            </th>
+                            <th class="py-2 px-4 border-b">
+                                Correo
+                            </th>
+                            <th class="py-2 px-4 border-b">
+                                Creado
+                            </th>
+                            <th class="py-2 px-4 border-b">
+                            </th>
+                        </tr>
+                    </thead>
 
-                    <div class="flow-root">
-                        <div class="mt-8 overflow-x-auto">
-                            <div class="inline-block min-w-full py-2 align-middle">
-                                <table class="w-full divide-y divide-gray-300">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">No</th>
-                                        
-									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Name</th>
-									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Email</th>
-									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Centro</th>
+                    <tbody>
+                        @foreach ($users as $user)
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-2 px-4 border-b">{{ $user->name }}</td>
 
-                                        <th scope="col" class="px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200 bg-white">
-                                    @foreach ($users as $user)
-                                        <tr class="even:bg-gray-50">
-                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900">{{ ++$i }}</td>
-                                            
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $user->name }}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $user->email }}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $user->centro }}</td>
+                            <td class="py-2 px-4 border-b">{{ $user->email }}</td>
 
-                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    <a href="{{ route('users.show', $user->id) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Show') }}</a>
-                                                    <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 font-bold hover:text-indigo-900  mr-2">{{ __('Edit') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <a href="{{ route('users.destroy', $user->id) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;">{{ __('Delete') }}</a>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                            <td class="py-2 px-4 border-b">{{ $user->created_at }}</td>
 
-                                <div class="mt-4 px-4">
-                                    {!! $users->withQueryString()->links() !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
+                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                    <a href="{{ route('users.show', $user->id) }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                        {{ __('Mostrar') }}
+                                    </a>
+
+                                    <a href="{{ route('users.edit', $user->id) }}" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                        {{ __('Editar') }}
+                                    </a>
+
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ route('users.destroy', $user->id) }}" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;">
+                                        {{ __('Borrar') }}
+                                    </a>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

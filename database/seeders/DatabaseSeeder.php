@@ -3,8 +3,14 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Centro;
+use App\Models\Compostera;
+use App\Models\Antes;
+use App\Models\Registro;
+use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +19,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Centro::factory(50)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::factory()->create(
+            [
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('admin123'),
+                'remember_token' => Str::random(10),
+                'centro_id' => 1,
+                'admin' => true,
+            ]
+        );
+
+        User::factory()->create(
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('user123'),
+                'remember_token' => Str::random(10),
+                'centro_id' => 1,
+            ]
+        );
+
+        Compostera::factory(3)->create();
+        Registro::factory(10)->create();
+        Antes::factory(10)->create();
     }
 }

@@ -2,16 +2,17 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\RegistroController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ComposteraController;
+use App\Http\Controllers\Api\RegistroController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('dashboard', [ComposteraController::class, 'store'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -19,9 +20,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::apiResource('RegistroController', RegistroController::class)
-->middleware(['verified', 'auth:sanctum']);
+Route::get('nuevaCompostera', [ComposteraController::class, 'create'])
+    ->middleware('can:administrate,App\Models\User');
 
-Route::resource('users', UserController::class)->middleware(['verified', 'auth:sanctum']);
+Route::get('estadisticas', [ComposteraController::class, 'mostrarEstadisticas'])
+    ->name('estadisticas')
+    ->middleware(['verified', 'auth:sanctum']);
 
-require __DIR__.'/auth.php';
+Route::get('registro', [ComposteraController::class, 'mostrarRegistro'])
+    ->name('registro')
+    ->middleware(['verified', 'auth:sanctum']);
+
+Route::get('registros', [RegistroController::class, 'mostrarRegistros'])
+    ->name('registros')
+    ->middleware(['verified', 'auth:sanctum']);
+
+Route::resource('users', UserController::class)
+    ->middleware('can:administrate,App\Models\User');
+
+Route::get('register', [RegisteredUserController::class, 'create'])
+    ->name('register')
+    ->middleware('can:administrate,App\Models\User');
+
+Route::post('register', [RegisteredUserController::class, 'store']);
+
+require __DIR__ . '/auth.php';

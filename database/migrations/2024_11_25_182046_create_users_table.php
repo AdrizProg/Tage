@@ -18,8 +18,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->unsignedBigInteger('centro');
-            $table->foreign('centro')->references('id')->on('centros')->onDelete('cascade');
+            $table->unsignedBigInteger('centro_id');
+            $table->foreign('centro_id')->references('id')->on('centros')->onDelete('cascade');
+            $table->boolean('admin')->default(false);
             $table->timestamps();
         });
 
@@ -44,8 +45,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('users');
+            $table->dropColumn('password_reset_tokens');
+            $table->dropColumn('sessions');
+            $table->dropColumn('admin');
+        });
     }
 };

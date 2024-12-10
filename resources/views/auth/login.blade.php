@@ -26,15 +26,8 @@
         </div>
 
 
-        <!-- Recuérdame -->
+        <!-- Contraseña olvidada -->
         <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center">
-                <label for="remember_me" class="flex items-center text-gray-700">
-                    <input id="remember-me" type="checkbox" name="remember" class="form-checkbox text-green-500 bg-gray-100 border-gray-300 rounded focus:ring-2 focus:ring-green-500">
-                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Recuérdame') }}</span>
-                </label>
-            </div>
-
             @if (Route::has('password.request'))
             <a href="{{ route('password.request') }}" class="text-green-500 hover:underline">
                 {{ __('¿Olvidaste tu contraseña?') }}

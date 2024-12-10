@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('despues', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('nivelLLenado')->nullable();
+            $table->unsignedBigInteger('registro_id');
+            $table->foreign('registro_id')->references('id')->on('registros')->onDelete('cascade');
+            $table->tinyInteger('nivelLlenado')->nullable();
             $table->string('fotoFinal')->nullable();
             $table->string('observaciones')->nullable();
             $table->timestamps();
