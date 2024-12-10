@@ -2,7 +2,7 @@ import idRegistro from './selectIdRegistro';
 import newRegistro from './crearRegistro';
 
 let array = [];
-const urlAntes = 'http://tage.test/api/antes';
+const urlAntes = '/api/antes';
 const token = sessionStorage.getItem('apiToken');
 
 function obtenerDatosAntes(idReg) {

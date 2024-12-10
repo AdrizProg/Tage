@@ -1,4 +1,4 @@
-const url = 'http://tage.test/api/registros';
+const url = '/api/registros';
 const token = sessionStorage.getItem('apiToken');
 
 export default async function idRegistro() {

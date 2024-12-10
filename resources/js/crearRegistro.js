@@ -1,5 +1,5 @@
 let array = [];
-const urlRegistros = 'http://tage.test/api/registros';
+const urlRegistros = '/api/registros';
 const token = sessionStorage.getItem('apiToken');
 
 function obtenerDatosRegistro() {

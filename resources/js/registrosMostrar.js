@@ -1,6 +1,6 @@
 let array = []; // Array para almacenar los datos
 const dashboardPosition = document.getElementById('dash');
-const url = 'http://tage.test/api/registros/';
+const url = '/api/registros/';
 const token = sessionStorage.getItem('apiToken');
 
 async function fetchData() { // Cambiamos el nombre de la función para evitar conflictos

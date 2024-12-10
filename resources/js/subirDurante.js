@@ -1,7 +1,7 @@
 import idRegistro from './selectIdRegistro';
 
 let array = [];
-const urlDurante = 'http://tage.test/api/durante';
+const urlDurante = '/api/durante';
 const token = sessionStorage.getItem('apiToken');
 
 export function obtenerDatosDurante(idReg) {
