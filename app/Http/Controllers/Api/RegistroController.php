@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Antes;
+use App\Models\Durante;
+use App\Models\Despues;
 use Orion\Concerns\DisableAuthorization;
 use Orion\Http\Controllers\Controller;
 use App\Models\Registro;
@@ -36,7 +38,15 @@ class RegistroController extends Controller
 
     public function mostrarRegistros()
     {
-        $registros = Registro::all();
-        return view('registros.registro', compact('registros'));
+        if (request()->exists('registro')) {
+            $registroAntes = Antes::where('registro_id', '1')->get();
+            $registroDurante = Durante::where('registro_id', '1')->get();
+            $registroDespues = Despues::where('registro_id', '1')->get();
+
+            return view('registros.registros', compact('registroAntes', 'registroDurante', 'registroDespues'));
+        } else {
+            $registros = Registro::all();
+            return view('registros.registro', compact('registros'));
+        }
     }
 }

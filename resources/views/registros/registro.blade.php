@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex justify-center flex-wrap">
         @foreach ($registros as $registro)
-        <a href="/dashboard" class="mx-5">
+        <a href="registros?registro={{$registro->id}}" class="mx-5">
             <div class="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96 mb-5">
                 <h2 class="text-2xl font-semibold text-center mb-6 text-gray-800">Registro: {{$registro->id}}</h2>
 
