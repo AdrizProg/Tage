@@ -9,6 +9,8 @@ use Orion\Concerns\DisableAuthorization;
 use Orion\Http\Controllers\Controller;
 use App\Models\Registro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Compostera;
 
 class RegistroController extends Controller
 {
@@ -38,6 +40,8 @@ class RegistroController extends Controller
 
     public function mostrarRegistros()
     {
+        $user = Auth::user();
+
         if (request()->exists('registro')) {
             $registroAntes = Antes::where('registro_id', '1')->get();
             $registroDurante = Durante::where('registro_id', '1')->get();
@@ -45,8 +49,8 @@ class RegistroController extends Controller
 
             return view('registros.registros', compact('registroAntes', 'registroDurante', 'registroDespues'));
         } else {
-            $registros = Registro::all();
-            return view('registros.registro', compact('registros'));
+            $registros = Registro::where('user_id', $user->id)->get();
+            return view('registros.registro', compact('registros', 'user'));
         }
     }
 }

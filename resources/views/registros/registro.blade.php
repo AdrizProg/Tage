@@ -7,12 +7,6 @@
 
                 <!-- Card Content -->
                 <div class="space-y-4">
-                    <!-- ID -->
-                    <div class="flex justify-between">
-                        <span class="text-sm font-medium text-gray-700">ID:</span>
-                        <span class="text-sm text-gray-900">{{$registro->id}}</span>
-                    </div>
-
                     <!-- Inicio de Ciclo -->
                     <div class="flex justify-between">
                         <span class="text-sm font-medium text-gray-700">Inicio de Ciclo:</span>
@@ -28,7 +22,7 @@
                     <!-- ID de Usuario -->
                     <div class="flex justify-between">
                         <span class="text-sm font-medium text-gray-700">ID de Usuario:</span>
-                        <span class="text-sm text-gray-900">{{$registro->user_id}}</span>
+                        <span class="text-sm text-gray-900">{{$user->name}}</span>
                     </div>
 
                     <!-- Creación -->
