@@ -7,6 +7,7 @@
                     {{ $user->name }}
                 </h2>
             </div>
+
             <div class="grid grid-cols-1 gap-4">
                 <div class="flex justify-between">
                     <div class="font-semibold">
@@ -16,14 +17,17 @@
                         {{ $user->email }}
                     </div>
                 </div>
+
                 <div class="flex justify-between">
                     <div class="font-semibold">
                         Centro
                     </div>
+
                     <div>
                         {{ $user->centro_id }}
                     </div>
                 </div>
+
                 <div class="flex justify-between">
                     <div class="font-semibold">
                         Administrador
@@ -32,10 +36,12 @@
                         {{ $user->admin }}
                     </div>
                 </div>
+
                 <div class="flex justify-between">
                     <div class="font-semibold">
                         Creado
                     </div>
+
                     <div>
                         {{ $user->created_at }}
                     </div>
