@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Compostera;
 
 class ComposteraController extends Controller
@@ -31,8 +32,9 @@ class ComposteraController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $composteras = Compostera::all();
-        return view('dashboard', compact('composteras'));
+        return view('dashboard', compact('composteras', 'user'));
     }
 
     /**

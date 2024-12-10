@@ -17,9 +17,14 @@
         @endforeach
     </div>
 
+    {{$user->id}}
     <script>
+        if (!sessionStorage.getItem('idUser')) {
+            sessionStorage.setItem('idUser', @json('$user->id'));
+        };
+
         if (!sessionStorage.getItem('apiToken')) {
-        sessionStorage.setItem('apiToken', @json(session('token')))
-        }
+            sessionStorage.setItem('apiToken', @json(session('token')));
+        };
     </script>
 </x-app-layout>
