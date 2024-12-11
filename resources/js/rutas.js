@@ -7,6 +7,8 @@ import hola from './registroAntes';
 import idRegistro from './selectIdRegistro';
 // import composterasMostrar from './registroComposteras';
 import fetchDataAntes from './graficas';
+import alertFormularios from './alertForm';
+import AntesBorrar from './cancelarRegistro';
 
 let currentHash = "";
 
@@ -45,7 +47,17 @@ export default function rutasUrl() {
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
-            uploadDurante();
+            const idComp = window.location.href.slice(-1);
+
+            if (localStorage.getItem('durante' + idComp)) {
+                
+                alertFormularios();
+
+                location.replace('/registro#despues' + idComp);
+            } else {
+                uploadDurante();
+            }
+            
 
         });
 
@@ -53,10 +65,16 @@ export default function rutasUrl() {
 
         mostrarRegistros(3);
 
+        const idComp = window.location.href.slice(-1);
+        const btnAnterior = document.getElementById('btnAnterior');
+        btnAnterior.addEventListener('click', async () => {
+            location.replace('/registro#durante' + idComp);
+        });
+
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
-            uploadDespues();
+                uploadDespues();
 
         });
 
@@ -75,35 +93,17 @@ export default function rutasUrl() {
         const humedadMostrar = document.getElementById('humedad');
         humedadMostrar.addEventListener('change', hola);
 
+        const cancelarRegistro = document.getElementById('btnCancelar');
+        cancelarRegistro.addEventListener('click', AntesBorrar);
+
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
             const idComp = window.location.href.slice(-1);
 
-            const alertHTML = `
-                <div id="alert-message" class="fixed top-5 right-5 bg-red-500 text-white px-4 py-2 rounded shadow-md text-sm opacity-0 transition-opacity duration-300">
-                    El registro ya ha sido introducido, acabe todos los formularios o cancele el registro.
-                </div>
-                            `;
-
-            // Insertar el mensaje de alerta en el cuerpo del documento
-            document.body.insertAdjacentHTML('beforeend', alertHTML);
-
             if (localStorage.getItem('antes' + idComp)) {
-                const alertElement = document.getElementById('alert-message');
-                if (alertElement) {
-                    alertElement.classList.remove('opacity-0'); // Hacer visible el mensaje
-                    alertElement.classList.add('opacity-100');
-
-                    // Ocultar el mensaje después de 3 segundos
-                    setTimeout(() => {
-                        alertElement.classList.remove('opacity-100');
-                        alertElement.classList.add('opacity-0');
-
-                        // Eliminar el elemento del DOM después de la animación de salida
-                        setTimeout(() => alertElement.remove(), 1000);
-                    }, 3000);
-                }
+                
+                alertFormularios();
 
                 location.replace('/registro#durante' + idComp);
             } else {

@@ -67,6 +67,7 @@ export default async function uploadAntes() {
   const id = await idRegistro();
   obtenerDatosAntes(id);
   const idComp = window.location.href.slice(-1);
+  localStorage.setItem('reg' + idComp, id);
 
   try {
     const response = await fetch(urlAntes, {

@@ -15,7 +15,7 @@ class AntesController extends Controller
     {
         // Recupera todos los registros de la tabla 'antes'
         $registros = Antes::all();
-    
+
         // Retorna los registros como una respuesta JSON con estado HTTP 200
         return response()->json([
             'success' => true,
@@ -30,23 +30,30 @@ class AntesController extends Controller
     {
         // Validar los datos de entrada
         $validatedData = $request->validate([
-            'registro_id' => 'required|integer', // Campo requerido y debe ser un número entero
-            'tempAmbiente' => 'nullable|numeric', // Campo opcional, debe ser numérico
+            'registro_id' => 'required|integer',
+            'tempAmbiente' => 'nullable|numeric',
             'tempCompostera' => 'nullable|numeric',
-            'nivelLlenado' => 'nullable|integer', // Entero opcional
-            'olor' => 'nullable|in:Podrido,Amoniaco,Sin olor,Otro', // Enum actualizado
-            'insectos' => 'nullable|in:Moscas,Larbas,Ratones,Otro', // Enum actualizado
-            'humedad' => 'nullable|in:Muy mojado,Bien,Seco,Otro', // Enum actualizado
-            'foto' => 'nullable|image|max:2048', // Campo opcional para imágenes
-        
-            // Nuevos campos de texto para especificar otros valores
-            'otroOlor' => 'nullable|string|max:255', // Campo opcional de texto
-            'otroInsecto' => 'nullable|string|max:255', // Campo opcional de texto
-            'otroHumedad' => 'nullable|string|max:255', // Campo opcional de texto
+            'nivelLlenado' => 'nullable|integer',
+            'olor' => 'nullable|in:Podrido,Amoniaco,Sin olor,Otro',
+            'insectos' => 'nullable|in:Moscas,Larbas,Ratones,Otro',
+            'humedad' => 'nullable|in:Muy mojado,Bien,Seco,Otro',
+            'foto' => 'nullable|image|max:2048',
+            'otroOlor' => 'nullable|string|max:255',
+            'otroInsecto' => 'nullable|string|max:255',
+            'otroHumedad' => 'nullable|string|max:255',
         ]);
 
+        // Crear un nuevo registro
         $registro = Antes::create($validatedData);
+
+        // Retornar una respuesta exitosa
+        return response()->json([
+            'success' => true,
+            'data' => $registro,
+            'message' => 'Registro creado exitosamente.'
+        ], 201);
     }
+
 
     /**
      * Display the specified resource.
@@ -69,6 +76,23 @@ class AntesController extends Controller
      */
     public function destroy(Antes $antes)
     {
-        //
+        \Log::info('Intentando eliminar el registro con ID: ' . $antes->id);
+
+        try {
+            $antes->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Registro eliminado exitosamente.'
+            ], 200);
+        } catch (\Exception $e) {
+            \Log::error('Error al intentar eliminar el registro: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al eliminar el registro.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
+
 }

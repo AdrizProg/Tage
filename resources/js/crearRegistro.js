@@ -4,7 +4,7 @@ const token = sessionStorage.getItem('apiToken');
 
 function obtenerDatosRegistro() {
     const compostera = window.location.href.slice(-1);
-    localStorage.setItem('compostera', compostera)
+    // localStorage.setItem('compostera', compostera)
     const idUser = sessionStorage.getItem('idUser');
 
     console.log(idUser);

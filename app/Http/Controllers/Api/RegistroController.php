@@ -60,4 +60,14 @@ class RegistroController extends Controller
             return view('registros.registro', compact('registros', 'usuarios', 'composteras'));
         }
     }
+
+    public function delete($id)
+    {
+            // Buscar el registro por ID
+            $registro = Registro::find($id);
+
+            // Eliminar el registro
+            $registro->delete();
+
+    }
 }
