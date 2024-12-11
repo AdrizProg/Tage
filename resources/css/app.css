@@ -7,9 +7,7 @@ main {
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    height: 150px;
+    margin-bottom: 0;
 }
 
 #navResponsive {

@@ -7,9 +7,9 @@
                 Antes <i id="icon-dropdown1" class="fas fa-chevron-down float-right"></i>
             </button>
 
-            <div id="dropdown1" class="hidden mt-2 p-4 border rounded-md transition-height overflow-hidden ">
+            <div id="dropdown1" class="hidden mt-2 p-4 border rounded-md transition-height overflow-hidden">
                 <div class="text-center report">
-                    <div class="bg-white p-8 rounded-lg shadow-lg w-96" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
+                    <div class="bg-white p-8 rounded-lg shadow-lg w-full" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
                         @include('registros.antes')
                     </div>
                 </div>
@@ -25,7 +25,7 @@
 
             <div id="dropdown2" class="hidden mt-2 p-4 border rounded-md transition-height overflow-hidden">
                 <div class="text-center report">
-                    <div class="bg-white p-8 rounded-lg shadow-lg w-96" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
+                    <div class="bg-white p-8 rounded-lg shadow-lg w-full" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
                         @include('registros.durante')
                     </div>
                 </div>
@@ -42,7 +42,7 @@
             <div id="dropdown3" class="hidden mt-2 p-4 border rounded-md transition-height overflow-hidden">
                 <div class="report">
                     <div class="text-center report">
-                        <div class="bg-white p-8 rounded-lg shadow-lg w-96" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
+                        <div class="bg-white p-8 rounded-lg shadow-lg w-full" style="box-shadow: 0 4px 20px rgba(139, 69, 19, 0.5);">
                             @include('registros.despues')
                         </div>
                     </div>
