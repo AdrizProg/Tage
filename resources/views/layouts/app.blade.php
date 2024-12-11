@@ -20,8 +20,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 
-<body class="bg-blue-100">
-    <header class="bg-green-600 p-4 flex items-center justify-between">
+<body class="bg-blue-100 w-full">
+    <header class="bg-green-600 p-4 flex items-center justify-between w-full">
         <img alt="Logo" src="{{ asset('favicon.ico') }}" class="w-15 h-20" />
 
         @include('layouts.navigation')
@@ -66,17 +66,17 @@
         </div>
     </main>
 
-    <footer class="w-full bg-gray-800 text-white p-4 flex items-center justify-between" style="  position: fixed; bottom: 0;">
+    <footer class="w-full bg-gray-800 text-white p-4 flex items-center justify-between">
         <div class=" flex flex-col items-center space-y-1">
-            <img alt="Certificado" src="{{ Vite::asset('/public/images/cc.png') }}" class="h-10">
+            <img alt="Certificado" src="{{ asset('/public/images/cc.png') }}" class="h-10">
 
-            <img alt="Certificado aa" src="{{ Vite::asset('/public/images/waa.png') }}" class="h-20">
+            <img alt="Certificado aa" src="{{ asset('/public/images/waa.png') }}" class="h-20">
         </div>
 
         <p class="text-sm text-center">&copy; 2024 Your Company, Inc. All rights reserved.</p>
 
         <a href="https://github.com/Illian-Santiago/tage.git" target="_blank" rel="noopener noreferrer" class="flex items-center">
-            <img src="{{ Vite::asset('/public/images/git.gif') }}" class="h-10">
+            <img src="{{ asset('/public/images/git.gif') }}" class="h-10">
         </a>
     </footer>
 
