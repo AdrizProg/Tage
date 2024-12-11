@@ -44,6 +44,30 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Compostera::factory(3)->create();
+        Compostera::factory()->create(
+            [
+                'nombre' => 'Aporte',
+                'tipo' => 'Aporte',
+                'centro' => 1,
+            ]
+        );
+
+        Compostera::factory()->create(
+            [
+                'nombre' => 'Degradación',
+                'tipo' => 'Degradacion',
+                'centro' => 1,
+            ]
+        );
+
+        Compostera::factory()->create(
+            [
+                'nombre' => 'Maduración',
+                'tipo' => 'Maduracion',
+                'centro' => 1,
+            ]
+        );
+
+        // Compostera::factory(3)->create();
     }
 }
