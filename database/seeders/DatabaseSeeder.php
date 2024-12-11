@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Centro::factory(50)->create();
+        Centro::factory(2)->create();
 
         User::factory()->create(
             [
@@ -45,7 +45,5 @@ class DatabaseSeeder extends Seeder
         );
 
         Compostera::factory(3)->create();
-        Registro::factory(10)->create();
-        Antes::factory(10)->create();
     }
 }
