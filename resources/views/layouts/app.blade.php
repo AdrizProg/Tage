@@ -29,21 +29,52 @@
         <div class="flex items-center space-x-4">
 
             @can('administrate', Auth::user())
-            <a href="nuevaCompostera">
-                <button class="flex items-center bg-white text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
-                    <i class="fas fa-plus mr-1"></i>
-                    Compostera
-                </button>
-            </a>
+            <button id="btnAñadirCompostera" class="flex items-center bg-white text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
+                <i class="fas fa-plus mr-1"></i>
+                Compostera
+            </button>
             @endcan
 
-            <x-dropdown-link :href="route('profile.edit')">
-                <img alt="User Avatar" class="h-8 w-8 rounded-full" height="30" src="https://storage.googleapis.com/a1aa/image/92L9rHMMkS6tBZKeenI7EMYCL76beZg8KvkikxNlv9IQREunA.jpg" width="30" />
-            </x-dropdown-link>
+            <a href="{{ route('profile.edit') }}">
+                <img alt="User  Avatar" class="h-8 w-8 rounded-full" height="30" src="https://storage.googleapis.com/a1aa/image/92L9rHMMkS6tBZKeenI7EMYCL76beZg8KvkikxNlv9IQREunA.jpg" width="30" />
+            </a>
         </div>
     </header>
 
-    <main class="py-10 px-10"> {{ $slot }} </main>
+    <main class="py-10 px-10">
+        {{ $slot }}
+
+        <!-- Formulario añadir compostera -->
+        <div id="formulario" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+                <h2 class="text-xl font-bold mb-4">Nueva compostera</h2>
+
+                <form id="createForm" action="nuevaCompostera">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700">Apodo</label>
+
+                        <input type="text" id="apodo" name="apodo" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" id="btnCerrarForm" class="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-600">Cancelar</button>
+
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Crear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 
     <footer></footer>
+
+    <script>
+        document.querySelector('#btnAñadirCompostera').addEventListener('click', function() {
+            document.querySelector('#formulario').classList.remove('hidden');
+        });
+
+        document.querySelector('#btnCerrarForm').addEventListener('click', function() {
+            document.querySelector('#formulario').classList.add('hidden');
+        });
+    </script>
 </body>
