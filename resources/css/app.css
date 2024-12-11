@@ -6,3 +6,18 @@ footer {
     position: fixed;
     bottom: 0;
 }
+
+#navResponsive {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    #navNormal {
+        display: none;
+    }
+
+    #navResponsive {
+        display: block;
+    }
+    
+}

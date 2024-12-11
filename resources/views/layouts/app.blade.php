@@ -26,8 +26,7 @@
 
         @include('layouts.navigation')
 
-        <div class="flex items-center space-x-4">
-
+        <div class="mr-0 flex items-center space-x-4">
             @can('administrate', Auth::user())
             <button id="btnAñadirCompostera" class="flex items-center bg-white text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
                 <i class="fas fa-plus mr-1"></i>
@@ -70,7 +69,7 @@
         <div class=" flex flex-col items-center space-y-1">
             <img alt="Certificado" src="{{ asset('/images/cc.png') }}" class="h-10">
 
-            <img alt="Certificado aa" src="{{ asset('/images/waa.png') }}" class="h-20">
+            <img alt="Certificado aa" src="{{ asset('/images/waa.png') }}" class="h-24">
         </div>
 
         <p class="text-sm text-center">&copy; 2024 Your Company, Inc. All rights reserved.</p>
