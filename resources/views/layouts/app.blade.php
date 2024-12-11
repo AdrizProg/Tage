@@ -40,7 +40,7 @@
         </div>
     </header>
 
-    <main class="py-10 px-10" style="margin-bottom: 15%;">
+    <main class="py-10 px-10">
         {{ $slot }}
 
         <!-- Formulario añadir compostera -->
