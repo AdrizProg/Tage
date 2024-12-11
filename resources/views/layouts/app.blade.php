@@ -41,7 +41,7 @@
         </div>
     </header>
 
-    <main class="py-10 px-10">
+    <main class="py-10 px-10" style="margin-bottom: 15%;">
         {{ $slot }}
 
         <!-- Formulario añadir compostera -->
@@ -66,7 +66,19 @@
         </div>
     </main>
 
-    <footer></footer>
+    <footer class="w-full bg-gray-800 text-white p-4 flex items-center justify-between" style="  position: fixed; bottom: 0;">
+        <div class=" flex flex-col items-center space-y-1">
+            <img alt="Certificado" src="{{ Vite::asset('/public/images/cc.png') }}" class="h-10">
+
+            <img alt="Certificado aa" src="{{ Vite::asset('/public/images/waa.png') }}" class="h-20">
+        </div>
+
+        <p class="text-sm text-center">&copy; 2024 Your Company, Inc. All rights reserved.</p>
+
+        <a href="https://github.com/Illian-Santiago/tage.git" target="_blank" rel="noopener noreferrer" class="flex items-center">
+            <img src="{{ Vite::asset('/public/images/git.gif') }}" class="h-10">
+        </a>
+    </footer>
 
     <script>
         document.querySelector('#btnAñadirCompostera').addEventListener('click', function() {
