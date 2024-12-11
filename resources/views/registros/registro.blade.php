@@ -9,20 +9,36 @@
                 <div class="space-y-4">
                     <!-- Inicio de Ciclo -->
                     <div class="flex justify-between">
-                        <span class="text-sm font-medium text-gray-700">Inicio de Ciclo:</span>
-                        <span class="text-sm text-gray-900">{{$registro->iniCiclo}}</span>
+                        <span class="text-sm font-medium text-gray-700">Inicio de ciclo:</span>
+                        <span class="text-sm text-gray-900">
+                            <?php
+                            if ($registro->iniCiclo == 1) {
+                                echo 'Si';
+                            } else {
+                                echo 'No';
+                            }
+                            ?>
+                        </span>
                     </div>
 
                     <!-- Compostera -->
                     <div class="flex justify-between">
                         <span class="text-sm font-medium text-gray-700">Compostera:</span>
-                        <span class="text-sm text-gray-900">{{$registro->compostera}}</span>
+                        <span class="text-sm text-gray-900">
+                            <?php
+                            echo $composteras->find($registro->compostera)->nombre;
+                            ?>
+                        </span>
                     </div>
 
                     <!-- ID de Usuario -->
                     <div class="flex justify-between">
                         <span class="text-sm font-medium text-gray-700">Usuario:</span>
-                        <span class="text-sm text-gray-900">{{$user->name}}</span>
+                        <span class="text-sm text-gray-900">
+                            <?php
+                            echo $usuarios->find($registro->user_id)->name;
+                            ?>
+                        </span>
                     </div>
 
                     <!-- Creación -->
