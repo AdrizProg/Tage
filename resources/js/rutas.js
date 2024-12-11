@@ -99,8 +99,7 @@ export default function rutasUrl() {
 
         const cambiarTipo = document.getElementById('ciclo');
         cambiarTipo.addEventListener('click', async () => {
-            const nuevoTipo = 'Vacia'; // El nuevo tipo que deseas asignar
-            actualizarTipoCompostera(nuevoTipo);
+            actualizarTipoCompostera();
         });
 
         const boton = document.getElementById('boton');

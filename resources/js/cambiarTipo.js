@@ -1,10 +1,39 @@
-export default async function actualizarTipoCompostera(nuevoTipo) {
-    const id = window.location.href.slice(-1);
+const token = sessionStorage.getItem('apiToken');
+const id = window.location.href.slice(-1);
+
+export default async function actualizarTipoCompostera() {
     const url = `/api/composteras/${id}`; // Cambia la URL por la correcta
-    const token = sessionStorage.getItem('apiToken');
-    const data = {
-        tipo: nuevoTipo
-    };
+    let data;
+
+    let datosCompostera = await composteras();
+    let compostera = datosCompostera.filter(e => e.id == id);
+    const tipoComp = compostera[0].tipo;
+
+    if (tipoComp == 'Vacia') {
+        // const nuevoTipo = 'Aporte';
+        data = {
+            tipo: 'Aporte'
+        };
+    } else if (tipoComp == 'Aporte') {
+        // const nuevoTipo = 'Degradacion';
+        data = {
+            tipo: 'Degradacion'
+        };
+    } else if (tipoComp == 'Degradacion') {
+        // const nuevoTipo = 'Maduracion';
+        data = {
+            tipo: 'Maduracion'
+        };
+    } else if (tipoComp == 'Maduracion') {
+        // const nuevoTipo = 'Vacia';
+        data = {
+            tipo: 'Vacia'
+        };
+    } 
+
+    // const data = {
+    //     tipo: nuevoTipo
+    // };
 
     try {
         const response = await fetch(url, {
@@ -31,4 +60,39 @@ export default async function actualizarTipoCompostera(nuevoTipo) {
     }
 
     location.replace('/dashboard');
+}
+
+async function composteras() {
+    try {
+        const response = await fetch('/api/composteras', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        // Verificar si la respuesta es válida
+        if (!response.ok) {
+            const errorData = await response.text(); // Usamos .text() para inspeccionar el error
+            console.error('Errores devueltos por el servidor:', errorData);
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Verificar si el cuerpo tiene contenido antes de convertir a JSON
+        const textResponse = await response.text();
+        if (textResponse.trim() === "") {
+            console.warn("El servidor devolvió una respuesta vacía.");
+            return []; // Retornar un array vacío en caso de respuesta vacía
+        }
+
+        const result = JSON.parse(textResponse); // Convertir el texto a JSON
+        console.log('Datos obtenidos de la base de datos:', result);
+
+        return result; // Retornar los datos obtenidos
+
+    } catch (error) {
+        console.error('Error al obtener los datos:', error);
+        throw error; // Propagar el error para manejarlo en otro lugar si es necesario
+    }
 }
