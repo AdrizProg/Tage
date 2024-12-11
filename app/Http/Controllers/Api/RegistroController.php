@@ -40,14 +40,20 @@ class RegistroController extends Controller
 
     public function mostrarRegistros()
     {
+        $user = Auth::user();
+
         if (request()->exists('registro')) {
             $registroAntes = Antes::where('registro_id', request()->get('registro'))->get();
             $registroDurante = Durante::where('registro_id', request()->get('registro'))->get();
             $registroDespues = Despues::where('registro_id', request()->get('registro'))->get();
 
             return view('registros.registros', compact('registroAntes', 'registroDurante', 'registroDespues'));
+        }
+
+        if ($user->admin == 1) {
+            $registros = Registro::all();
+            return view('registros.registro', compact('registros', 'user'));
         } else {
-            $user = Auth::user();
             $registros = Registro::where('user_id', $user->id)->get();
             return view('registros.registro', compact('registros', 'user'));
         }
