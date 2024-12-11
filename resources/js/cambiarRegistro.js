@@ -114,6 +114,10 @@ export default function mostrarRegistros(e) {
             </form>
 
             <div class="flex space-x-4 mb-4">
+                <button id="ciclo" class="bg-green-600 text-white w-full py-2 rounded">
+                    Siguiente ciclo
+                </button>
+
                 <button id="boton" class="bg-green-600 text-white w-full py-2 rounded">
                     Siguiente
                 </button>
@@ -231,6 +235,10 @@ export default function mostrarRegistros(e) {
             </form>
 
             <div class="flex space-x-4 mb-4">
+                <button id="ciclo" class="bg-green-600 text-white w-full py-2 rounded">
+                    Siguiente ciclo
+                </button>
+
                 <button id="boton" class="bg-green-600 text-white w-full py-2 rounded">
                     Siguiente
                 </button>

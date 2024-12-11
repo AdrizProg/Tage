@@ -9,6 +9,7 @@ import idRegistro from './selectIdRegistro';
 import fetchDataAntes from './graficas';
 import alertFormularios from './alertForm';
 import AntesBorrar from './cancelarRegistro';
+import actualizarTipoCompostera from './cambiarTipo';
 
 let currentHash = "";
 
@@ -50,14 +51,14 @@ export default function rutasUrl() {
             const idComp = window.location.href.slice(-1);
 
             if (localStorage.getItem('durante' + idComp)) {
-                
+
                 alertFormularios();
 
                 location.replace('/registro#despues' + idComp);
             } else {
                 uploadDurante();
             }
-            
+
 
         });
 
@@ -74,7 +75,7 @@ export default function rutasUrl() {
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
-                uploadDespues();
+            uploadDespues();
 
         });
 
@@ -96,13 +97,18 @@ export default function rutasUrl() {
         const cancelarRegistro = document.getElementById('btnCancelar');
         cancelarRegistro.addEventListener('click', AntesBorrar);
 
+        const cambiarTipo = document.getElementById('ciclo');
+        cambiarTipo.addEventListener('click', async () => {
+            actualizarTipoCompostera();
+        });
+
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
             const idComp = window.location.href.slice(-1);
 
             if (localStorage.getItem('antes' + idComp)) {
-                
+
                 alertFormularios();
 
                 location.replace('/registro#durante' + idComp);

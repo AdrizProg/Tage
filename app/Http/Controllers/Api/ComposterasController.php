@@ -44,7 +44,26 @@ class ComposterasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validar los datos enviados en la solicitud
+        $validatedData = $request->validate([
+            'nombre' => 'nullable|string|max:255',
+            'tipo' => 'nullable|in:Aporte,Degradacion,Maduracion,Vacia',
+            'centro' => 'nullable|integer',
+        ]);
+    
+        // Buscar la compostera por su ID
+        $compostera = Compostera::find($id);
+    
+        // Verificar si la compostera existe
+        if (!$compostera) {
+            return response()->json(['error' => 'Compostera no encontrada'], 404);
+        }
+    
+        // Actualizar los datos de la compostera
+        $compostera->update($validatedData);
+    
+        // Devolver una respuesta exitosa
+        return response()->json(['message' => 'Compostera actualizada con éxito', 'data' => $compostera], 200);
     }
 
     /**
