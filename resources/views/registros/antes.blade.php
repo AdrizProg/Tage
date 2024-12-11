@@ -29,7 +29,9 @@
     <!-- Otro Olor -->
     <div class="flex justify-between">
         <span class="text-sm font-medium text-gray-700">Otro Olor:</span>
-        <span class="text-sm text-gray-900">{{$antes->otroOlor}}</span>
+        <span class="text-sm text-gray-900">
+            <?php echo $antes->otroOlor == null ? 'Ninguno' : $antes->otroOlor; ?>
+        </span>
     </div>
 
     <!-- Insectos -->
@@ -59,6 +61,8 @@
     <!-- Observaciones -->
     <div class="flex justify-between">
         <span class="text-sm font-medium text-gray-700">Observaciones:</span>
-        <span class="text-sm text-gray-900">{{$antes->observaciones}}</span>
+        <span class="text-sm text-gray-900">
+            <?php echo $antes->observaciones == null ? 'Ninguno' : $antes->observaciones; ?>
+        </span>
     </div>
 </div>

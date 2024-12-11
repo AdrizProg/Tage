@@ -11,13 +11,7 @@
                     <div class="flex justify-between">
                         <span class="text-sm font-medium text-gray-700">Inicio de ciclo:</span>
                         <span class="text-sm text-gray-900">
-                            <?php
-                            if ($registro->iniCiclo == 1) {
-                                echo 'Si';
-                            } else {
-                                echo 'No';
-                            }
-                            ?>
+                            <?php echo $registro->iniCiclo == 1 ? 'Si' : 'No'; ?>
                         </span>
                     </div>
 
