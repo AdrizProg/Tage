@@ -42,9 +42,9 @@
 
     @if (Auth::check())
     <script>
-        // if (!sessionStorage.getItem('idUser')) {
-        //     sessionStorage.setItem('idUser', @json(Auth::user()->id));
-        // }
+        if (!sessionStorage.getItem('idUser')) {
+            sessionStorage.setItem('idUser', @json(Auth::user()->id));
+        }
 
         if (!sessionStorage.getItem('apiToken')) {
             sessionStorage.setItem('apiToken', @json(session('token')));
