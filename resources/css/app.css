@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main {
+    margin-bottom: 200px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 150px;
+}
+
+#navResponsive {
+    display: none;
+    justify-items: center;
+}
+
+#navResponsive div{
+    margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+    img[alt="Logo"]{
+        display: none;
+    }
+
+    #navNormal {
+        display: none;
+    }
+
+    #navResponsive {
+        display: block;
+    }
+}

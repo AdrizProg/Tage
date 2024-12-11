@@ -7,6 +7,8 @@ import hola from './registroAntes';
 import idRegistro from './selectIdRegistro';
 // import composterasMostrar from './registroComposteras';
 import fetchDataAntes from './graficas';
+import alertFormularios from './alertForm';
+import AntesBorrar from './cancelarRegistro';
 
 let currentHash = "";
 
@@ -28,18 +30,34 @@ export default function rutasUrl() {
         const id = window.location.href.slice(-1);
         const boton = document.getElementById('createreg');
         boton.addEventListener('click', () => {
-            location.replace('http://tage.test/registro#antes' + id);
+            location.replace('/registro#antes' + id);
         });
-        
 
-    }else if (hash.includes('/registro#durante')) {
+
+    } else if (hash.includes('/registro#durante')) {
 
         mostrarRegistros(2);
+
+        const idComp = window.location.href.slice(-1);
+        const btnAnterior = document.getElementById('btnAnterior');
+        btnAnterior.addEventListener('click', async () => {
+            location.replace('/registro#antes' + idComp);
+        });
 
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
-            uploadDurante();
+            const idComp = window.location.href.slice(-1);
+
+            if (localStorage.getItem('durante' + idComp)) {
+                
+                alertFormularios();
+
+                location.replace('/registro#despues' + idComp);
+            } else {
+                uploadDurante();
+            }
+            
 
         });
 
@@ -47,10 +65,16 @@ export default function rutasUrl() {
 
         mostrarRegistros(3);
 
+        const idComp = window.location.href.slice(-1);
+        const btnAnterior = document.getElementById('btnAnterior');
+        btnAnterior.addEventListener('click', async () => {
+            location.replace('/registro#durante' + idComp);
+        });
+
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
-            uploadDespues();
+                uploadDespues();
 
         });
 
@@ -69,10 +93,23 @@ export default function rutasUrl() {
         const humedadMostrar = document.getElementById('humedad');
         humedadMostrar.addEventListener('change', hola);
 
+        const cancelarRegistro = document.getElementById('btnCancelar');
+        cancelarRegistro.addEventListener('click', AntesBorrar);
+
         const boton = document.getElementById('boton');
         boton.addEventListener('click', async () => {
 
-            uploadAntes();
+            const idComp = window.location.href.slice(-1);
+
+            if (localStorage.getItem('antes' + idComp)) {
+                
+                alertFormularios();
+
+                location.replace('/registro#durante' + idComp);
+            } else {
+                uploadAntes();
+            }
+
 
         });
 

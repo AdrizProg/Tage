@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Centro::factory(50)->create();
+        Centro::factory(2)->create();
 
         User::factory()->create(
             [
@@ -44,8 +44,30 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Compostera::factory(3)->create();
-        Registro::factory(10)->create();
-        Antes::factory(10)->create();
+        Compostera::factory()->create(
+            [
+                'nombre' => 'Aporte',
+                'tipo' => 'Aporte',
+                'centro' => 1,
+            ]
+        );
+
+        Compostera::factory()->create(
+            [
+                'nombre' => 'Degradación',
+                'tipo' => 'Degradacion',
+                'centro' => 1,
+            ]
+        );
+
+        Compostera::factory()->create(
+            [
+                'nombre' => 'Maduración',
+                'tipo' => 'Maduracion',
+                'centro' => 1,
+            ]
+        );
+
+        // Compostera::factory(3)->create();
     }
 }

@@ -18,11 +18,13 @@ class ComposteraController extends Controller
 
     public function create(Request $request)
     {
-        $composteraNueva = new Compostera();
-        $composteraNueva->nombre = 'Compostera';
-        $composteraNueva->centro = 1;
-        $composteraNueva->tipo = 1;
-        $composteraNueva->save();
+        Compostera::create(
+            [
+                'nombre' => request()->get('apodo'),
+                'centro' => Auth::user()->centro_id,
+                'tipo' => 'Vacia',
+            ]
+        );
 
         return redirect(route('dashboard'));
     }

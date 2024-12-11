@@ -2,7 +2,7 @@ import idRegistro from './selectIdRegistro';
 import newRegistro from './crearRegistro';
 
 let array = [];
-const urlAntes = 'http://tage.test/api/antes';
+const urlAntes = '/api/antes';
 const token = sessionStorage.getItem('apiToken');
 
 function obtenerDatosAntes(idReg) {
@@ -67,6 +67,7 @@ export default async function uploadAntes() {
   const id = await idRegistro();
   obtenerDatosAntes(id);
   const idComp = window.location.href.slice(-1);
+  localStorage.setItem('reg' + idComp, id);
 
   try {
     const response = await fetch(urlAntes, {

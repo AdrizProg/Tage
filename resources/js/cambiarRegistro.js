@@ -37,7 +37,7 @@ export default function mostrarRegistros(e) {
                             Temperatura ambiente
                         </label>
 
-                        <input id="tempAmbiente" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayAntes.tempAmbiente}"/>
+                        <input id="tempAmbiente" min="0" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayAntes.tempAmbiente}" required/>
                     </div>
 
                     <div class="w-1/2">
@@ -45,7 +45,7 @@ export default function mostrarRegistros(e) {
                             Temperatura compostera
                         </label>
 
-                        <input id="tempCompostera" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayAntes.tempCompostera}"/>
+                        <input id="tempCompostera" min="0" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayAntes.tempCompostera}" required/>
                     </div>
                 </div>
 
@@ -154,7 +154,7 @@ export default function mostrarRegistros(e) {
                             Temperatura ambiente
                         </label>
 
-                        <input id="tempAmbiente" type="number" placeholder="30" class="w-full p-2 border rounded" />
+                        <input id="tempAmbiente" min="0" type="number" placeholder="30" class="w-full p-2 border rounded" required/>
                     </div>
 
                     <div class="w-1/2">
@@ -162,7 +162,7 @@ export default function mostrarRegistros(e) {
                             Temperatura compostera
                         </label>
 
-                        <input id="tempCompostera" type="number" placeholder="30" class="w-full p-2 border rounded" />
+                        <input id="tempCompostera" min="0" type="number" placeholder="30" class="w-full p-2 border rounded" required/>
                     </div>
                 </div>
 
@@ -300,7 +300,7 @@ export default function mostrarRegistros(e) {
                             Aporte verde
                         </label>
 
-                        <input id="aporteVerde" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayDurante.aporteVerde}"/>
+                        <input id="aporteVerde" min="0" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayDurante.aporteVerde}" required/>
 
                         <label class="block mb-2" for="olor">
                             Tipo Aporte verde
@@ -314,7 +314,7 @@ export default function mostrarRegistros(e) {
                             Aporte seco
                         </label>
 
-                        <input id="aporteSeco" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayDurante.aporteSeco}"/>
+                        <input id="aporteSeco" min="0" type="number" placeholder="30" class="w-full p-2 border rounded" value="${arrayDurante.aporteSeco}" required/>
 
                         <label class="block mb-2" for="olor">
                             Tipo Aporte seco
@@ -402,7 +402,7 @@ export default function mostrarRegistros(e) {
                             Aporte verde
                         </label>
 
-                        <input id="aporteVerde" type="number" placeholder="30" class="w-full p-2 border rounded" />
+                        <input id="aporteVerde" min="0" type="number" placeholder="30" class="w-full p-2 border rounded" />
 
                         <label class="block mb-2" for="olor">
                             Tipo Aporte verde
@@ -416,7 +416,7 @@ export default function mostrarRegistros(e) {
                             Aporte seco
                         </label>
 
-                        <input id="aporteSeco" type="number" placeholder="30" class="w-full p-2 border rounded" />
+                        <input id="aporteSeco" type="number" min="0" placeholder="30" class="w-full p-2 border rounded" />
 
                         <label class="block mb-2" for="olor">
                             Tipo Aporte seco

@@ -1,10 +1,10 @@
 import ApexCharts from 'apexcharts';
 
 let array = [];
-const urlAntes = 'http://tage.test/api/antes';
+const urlAntes = '/api/antes';
 const token = sessionStorage.getItem('apiToken');
 
-const url = 'http://tage.test/api/registros';
+const url = '/api/registros';
 
 function viewGraficas(valores, compReg) {
     const idCompostera = window.location.href.slice(-1);
